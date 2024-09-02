@@ -1,0 +1,28 @@
+.bg-primary-bugfish{background: black; } .bg-primary-bugfish:hover {background: white; color: black; } .shadow-primary-bugfish:focus { border-color: red; } .transition-colors{border-color: #242424;} button {color: #CCCCCC;} .text-bugfish-primary { color: #CCCCCC; }  .button { color: grey; } .button svg { color: grey; } a { color: lime; } .text-bugfish-primary-600 { color: lime; } .background-danger { background: red;} .background-warning { background: yellow; color: black; } .background-info { background: blue; } .background-primary { background: lime; color: black;} .bugfish-primary-color {color: lime; } .bugfish-primary-color-force {color: lime !important; }
+
+aside a {
+	color: rgb(229, 231, 235);
+}
+@media (min-width: 768px) {
+	.fix-turnout-navigation {
+		display: none;
+	}
+}
+
+footer#web_footer {
+	position: fixed;
+	bottom: 0px;
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	z-index: 28;
+	width: 100vw;
+	padding: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	font-size: 12px;
+}
+
+main {
+	padding-bottom: 50px;
+}
