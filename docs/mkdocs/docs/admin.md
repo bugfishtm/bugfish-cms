@@ -1,0 +1,3 @@
+# Admin Module
+
+The **Admin Module** in **bugfishCMS** is the default integrated interface that connects all CMS functionalities, allowing users to manage and extend the system without coding expertise. It serves as a frontend showcase for various features, offering a user-friendly experience for content management. For developers, the Admin Module provides an overview of the system's capabilities and can be copied, investigated, and reused to build custom solutions or extend the CMS further.

@@ -6,13 +6,13 @@ This page provides access to view the GitHub repository and download the latest 
 
 You can explore the code and files in the GitHub repository by clicking the link below:
 
-[View GitHub Repository](https://github.com/bugfishtm/Online-Book-Renting){.md-button}
+[View GitHub Repository](https://github.com/bugfishtm/bugfish-cms){.md-button}
 
 ## Download the Latest File
 
 To download the latest file from the repository directory, click the link below:
 
-[Download Latest Release](https://github.com/bugfishtm/Online-Book-Renting/archive/refs/heads/main.zip){.md-button}
+[Download Latest Release](https://github.com/bugfishtm/bugfish-cms/archive/refs/heads/main.zip){.md-button}
 
 ## Check for Docker Images
 

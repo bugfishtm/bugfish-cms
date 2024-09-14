@@ -428,7 +428,7 @@
 		if(!defined("_HIVE_CRIT_ER_"))  {
 			if(is_array(_HIVE_MODE_ARRAY_))  {
 				foreach(_HIVE_MODE_ARRAY_ as $key => $value) {
-					$realpath = _HIVE_PATH_SITE_."/".$value."/";
+					$realpath = _HIVE_SITE_PATH_."/".$value."/"; 
 					if (file_exists($realpath."/_config/global_pre.php")) {
 						$object["hive_mode_config"] = array(); 
 						$object["hive_mode_config"]["info"]   = hive__require_x($realpath."/version.php");
@@ -512,7 +512,7 @@
 		if(!defined("_HIVE_CRIT_ER_"))  {
 			if(is_array(_HIVE_MODE_ARRAY_))  {
 				foreach(_HIVE_MODE_ARRAY_ as $key => $value) {
-					$realpath = _HIVE_PATH_SITE_."/".$value."/";
+					$realpath = _HIVE_SITE_PATH_."/".$value."/";
 					if (file_exists($realpath."/_config/global.php")) {
 						$object["hive_mode_config"] = array(); 
 						$object["hive_mode_config"]["info"]   = hive__require_x($realpath."/version.php");
@@ -875,6 +875,7 @@
 			file_put_contents($object["path"]."/robots.txt", 
 "Sitemap: "._HIVE_URL_REL_."sitemap.xml
 User-Agent: *
+Disallow: "._HIVE_URLC_REL_."_api/*
 Disallow: "._HIVE_URLC_REL_."_core/*
 Disallow: "._HIVE_URLC_REL_."_cron/*
 Disallow: "._HIVE_URLC_REL_."_data/*
@@ -1020,7 +1021,7 @@ RewriteRule ^(_disabled) - [F,L]"); }
 		if(!defined("_HIVE_CRIT_ER_"))  {
 			if(is_array(_HIVE_MODE_ARRAY_))  {
 				foreach(_HIVE_MODE_ARRAY_ as $key => $value) {
-					$realpath = _HIVE_PATH_SITE_."/".$value."/";
+					$realpath = _HIVE_SITE_PATH_."/".$value."/";
 					if (file_exists($realpath."/_config/global_post.php")) {
 						$object["hive_mode_config"] = array(); 
 						$object["hive_mode_config"]["info"]   = hive__require_x($realpath."/version.php");

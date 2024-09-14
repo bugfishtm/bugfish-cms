@@ -2,26 +2,58 @@
 # bugfishCMS
 
 ## Introduction
-**bugfishCMS** is a powerful and flexible backend multi-site content management system built for robust site management. Designed for both developers and end-users, it offers a customizable platform that adapts to various project needs.
+bugfishCMS is a powerful and versatile content management system designed to empower both end-users and developers alike. Whether you're a business owner looking to streamline your online presence or a developer seeking robust backend functionalities, bugfishCMS has you covered.
+
+With bugfishCMS, you can effortlessly manage user permissions, debug your websites for optimal performance, and customize the administrator interface to suit your preferences. Enjoy multi-language support, dynamic color schemes, and a simplified installation process with our intuitive GUI installer.
+
+For developers, bugfishCMS offers a comprehensive suite of backend features, including multi-site management, framework integration, debugging tools, and dynamic code loading capabilities. Seamlessly integrate with our Bugfish Framework and leverage ready-to-use updater routines for effortless project maintenance.
+
+Explore our extension store for additional functionalities, manage files and media assets with ease, and harness integrated CRM tools.
 
 ## Features
-- **Multi-Site Management:** Control multiple websites from a single platform.
-- **Administrator Module:** Fully customizable backend for managing users, groups, and permissions.
-- **Multi-Language Support:** Currently supports English, Japanese, German, and Spanish.
-- **CRM & Project Management Tools:** Includes task tracking and calendar scheduling.
-- **Modular Architecture:** Tailor features like file management and Docker control to fit your project.
-- **Extension Store:** Easily add new functionalities.
-- **Bugfish Framework Integration:** Advanced debugging, dynamic code loading, and custom extension support.
-- **Much More:** There is much more included which in explained on site.
 
-For more features and detailed information, check the `_docs` folder. Please note, that this documentation is for developers. The Youtube Tutorial Videos will give you more Insights about the End-User Functionalities. See "Documentation Links" sections for more information about these videos.
+### End-User Features
+
+| **Feature**                | **Description**                                                                                                                                             |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Administrator Module        | Responsive backend with file, user management, debugging insights, and access to the extension store.                                                       |
+| User and Group Manager      | Organize users into groups for streamlined access control, with permission management.                                                                      |
+| Installer                   | Simplified installation process with a graphical user interface (GUI).                                                                                      |
+| Updater                     | GUI-based updater for easy maintenance of the CMS.                                                                                                          |
+| File Management             | Robust file management for uploading and organizing media assets.                                                                                           |
+| Extension and Dedicated Store| Centralized marketplace for discovering, installing, and managing extensions, including setting up an extension store.                                      |
+| Store System and Module Downloads | Fully functional store system for module downloads, enhancing website customization.                                                                 |
+| Notification System         | System notifications for events and changes.                                                                                                               |
+| Docker Control              | Integrated control of Docker containers within the CMS for advanced deployment flexibility.                                                                 |
+
+### Developer Features
+
+| **Feature**                 | **Description**                                                                                                                                             |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Multi-Site Management        | Centralized management of multiple websites.                                                                                                               |
+| Framework Integration        | Integration with Bugfish Framework for bug tracking and debugging with support for CSS, JavaScript, and PHP Libraries.                                      |
+| Debugging Tools              | Robust debugging tools to identify errors and test performance or SQL issues.                                                                               |
+| Multi-Language Support       | Manage multiple languages for a global audience.                                                                                                           |
+| Dynamic Themes and Colors    | Enable dynamic switching of themes and color adjustments.                                                                                                  |
+| Dynamic CSS/JS Load          | Dynamically load CSS and JavaScript files for optimized performance.                                                                                        |
+| Updater Backend              | Ready-to-use updater routines per Site Module.                                                                                                             |
+| Dynamic Code Loading         | Support dynamic loading of code snippets or scripts.                                                                                                       |
+| Dynamic Cronjobs             | Schedule and automate tasks with dynamic cronjobs.                                                                                                         |
+| Extension Support            | Extend modules with custom or store-downloaded extensions.                                                                                                 |
+| Deployment                   | Deploy and control bugfishCMS clusters, module updates, and core updates via a public store.                                                               |
+| Integrated Templates         | Pre-designed templates for simplified website design.                                                                                                      |
+| Example Modules              | Collection of example modules for reference and inspiration.                                                                                               |
+| Developer-Friendly Interface | Comprehensive interface for developers to access and customize the system.                                                                                 |
+
+
+For more features and detailed information, check the `docs` folder. Please note, that this documentation is for developers. The Youtube Tutorial Videos will give you more Insights about the End-User Functionalities. See "Documentation Links" sections for more information about these videos.
 
 ## Screenshots
 <img src="./_images/preview.png" alt="Preview Image" height="100"> <img src="./_images/preview_windmill.png" alt="Preview Image" height="100"> <img src="./_images/preview_volt.png" alt="Preview Image" height="100"> <img src="./_images/preview_install.png" alt="Preview Image" height="100"> <img src="./_images/preview_adminbsb.png" alt="Preview Image" height="100">
 
 ## Official Store
 
-👉 Visit the [bugfishCMS Store](https://store.bugfish.eu) for more info and available modules!
+👉 Visit the [bugfishCMS Store](https://store.bugfish.eu) for more info and available modules! You can extend the functionality of bugfishCMS by adding scripts, extensions and modules!
 
 ## Installation
 For Installation Information please see our documentation at the _docs folder of this repository or at https://bugfishtm.github.io/bugfish-cms.

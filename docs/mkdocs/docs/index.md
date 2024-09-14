@@ -1,57 +1,32 @@
-# Online Book Renting (OBR)
+# bugfishCMS
 
-Welcome to the Online Book Renting (OBR) Web Software documentation. OBR is a comprehensive platform for managing and renting books online. The software provides a seamless experience for both administrators and users, offering various features to manage books, rentals, users, and more.
+## Introduction
 
-## General Information
+bugfishCMS is a powerful and versatile content management system designed to empower both end-users and developers alike. Whether you're a business owner looking to streamline your online presence or a developer seeking robust backend functionalities, bugfishCMS has you covered.
 
-OBR is your premier destination for book rentals online. With an extensive catalog of literary treasures, OBR caters to every reader's taste. Our sophisticated web software offers a seamless browsing experience, making it easy to discover your next literary adventure. Join the OBR community today and explore a world of boundless literary exploration.
+With bugfishCMS, you can effortlessly manage user permissions, debug your websites for optimal performance, and customize the administrator interface to suit your preferences. Enjoy multi-language support, dynamic color schemes, and a simplified installation process with our intuitive GUI installer.
+
+For developers, bugfishCMS offers a comprehensive suite of backend features, including multi-site management, framework integration, debugging tools, and dynamic code loading capabilities. Seamlessly integrate with our Bugfish Framework and leverage ready-to-use updater routines for effortless project maintenance.
+
+Explore our extension store for additional functionalities, manage files and media assets with ease, and harness integrated CRM tools.
+
+
+## Screenshots
+Here you can find some screenshots about this project!
+
+![Administrator Dashboard](./admin1.png)
+![Administrator Dashboard](./admin2.png)
+![Installer](./install.png)
+
+<br clear="both">
+
+## Project Goal
+
+Our primary goal with this project is to expedite and enhance multi-site deployment. Recognizing the paramount importance of swiftly launching web projects, we are committed to delivering a cutting-edge web hosting solution. We are in the process of implementing these advanced technologies into a new hosting panel, poised to redefine the web hosting landscape. Join us on this thrilling journey as we work towards reshaping web hosting as we know it.
+
+## Promote us!
+
+You want to support our project? Add or "powered by" images to your website and let users see that you are using our CMS!
 
 ![Bugfish Framework](./bugfish-framework-banner.jpg)
 ![Bugfish CMS](./bugfish-cms-banner.jpg)
-
-**Developed with Bugfish CMS and Bugfish Framework!**
-
-## Features
-
-### Book Management
-
-- Manage books with detailed information.
-- Display books on a public page for users to view and rent.
-- Manage book quantities and stock.
-- ISBN numbers are consistent across quantities; each individual book has a unique barcode.
-
-### Book Renting Management
-
-- Rent books to users and associate books with user accounts.
-- No online booking system—users must visit your location to borrow books.
-- Record rental transactions, including return dates, notes, and deposit information.
-
-### User and Permission Management
-
-- Two types of users: Administrators and Default Users.
-- Administrators manage all sections, while Default Users can request and donate books.
-- Guests (non-logged-in users) can view all books.
-
-### ISBN API Connections
-
-- Automatically fetch book details using ISBN API when adding new books.
-
-### Multi-Language Support
-
-- Add new language files and set default language in the interface.
-- Support for per-user language settings.
-
-## Requirements
-
-- Webserver with Apache2
-- Apache2 modules: `rewrite`, `ssl`
-- MySQL database access (remote or local)
-- PHP 8 with `curl`, `mysqli`, and `mbstring` modules
-- Recommended: 1GB webspace
-
-## Default Login for Web Interface
-
-> **Important:** Change the initial password after your first login.
-
-- **Username:** admin
-- **Password:** changeme

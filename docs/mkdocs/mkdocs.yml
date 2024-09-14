@@ -10,7 +10,8 @@ nav:
     - Tutorials: tutorials.md
     - Store: store.md
     - Developers: 
-        - Initialization: init.md
+        - Admin Module: admin.md
+        - Core Library: corelib.md
         - Cronjobs: devcron.md
         - Themes: devthemes.md
         - Updater: devupdater.md
@@ -19,6 +20,7 @@ nav:
         - Extension Modules: ext.md
         - Script Modules: script.md
         - Image Modules: image.md
+        - Docker Modules: docker.md
         - Vendor: vendor.md
     - Included Documentations: 
         - Bugfish Framework: ./extra-bugfish-framework/index.html
