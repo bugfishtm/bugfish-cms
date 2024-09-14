@@ -1055,3 +1055,12 @@ RewriteRule ^(_disabled) - [F,L]"); }
 				}
 			} unset($object["extension"]);	
 		}	
+		
+	#################################################################################################################################################
+	// API Define Variables for Default Scripts
+	#################################################################################################################################################
+		if(!defined("_HIVE_ACTION_MAILCHANGE_EXEC_")) { define("_HIVE_ACTION_MAILCHANGE_EXEC_", false); } 
+		if(!defined("_HIVE_ACTION_RECOVER_EXEC_")) { define("_HIVE_ACTION_RECOVER_EXEC_", false); } 
+		if(!defined("_HIVE_ACTION_LOGIN_EXEC_")) { define("_HIVE_ACTION_LOGIN_EXEC_", false); } 
+		if(!defined("_HIVE_ACTION_ACTIVATE_EXEC_")) { define("_HIVE_ACTION_ACTIVATE_EXEC_", false); } 
+		if(!defined("_HIVE_ACTION_REGISTER_EXEC_")) { define("_HIVE_ACTION_REGISTER_EXEC_", false); } 

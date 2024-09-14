@@ -1,219 +1,438 @@
-## Site Modules
+# Site Modules
+
+## General Information
 
 Website modules can be run as standalone websites or alongside other installed website modules. They can be distributed across various domains and virtual hosts, using integrated functionalities to display many websites with just one instance. This allows for full control over our administration or another administration module, according to your needs!
 
-<div class="alert alert-info">Explore our example site modules to get more insights for developers! Mind the comments in the files as they will help you to understand everything.</div>
-
-### General Information
+!!! warning "Explore our example site modules to get more insights for developers! Mind the comments in the files as they will help you to understand everything."
 
 - Site Modules are fully deployed websites integrated inside this CMS system. They can be extended using script or extension modules.
 - **Name** of Site Modules must start with an a-z character and should contain at most 10 characters.
 - Lookup our example Site Module in our repository to get more information about development.
 
-### 👆 Folder Structure
+## Folder Structure
 
-Here you can find the folder structure for Site Modules which can be applied to use core functions and let files automatically be executed. All these folders are optional to create and use. See inside the `_site/_administrator` Module to see implementations and files in different folders with explanations!
+Organize your site module ZIP file as follows. Replace `RNAME` with your module name.
 
-| **Folder Name**             | **Description**                                                                                                                                                                           |
-|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **CMS Cronjob Injection**   | You will have the following variables to work with relative to your site module. All CMS Core Variables will also be available:                                                            |
-|                             | `$object["cron_mail"]` - Current Site Module's Cron Mail Object<br />`$object["cron_var"]` - Current Site Module's Cron Variables Object<br />`$object["cron_mail_template"]` - Current Site Module's Cron Mail Template Object<br />`$hive_mode_cron` - Current Cron Hive Mode Folder Name |
-| `_cron`                     | Folder for Cronjobs to be injected.                                                                                                                                                         |
-| `_cron/_daily/*`            | Daily Cronjob Injection Scripts (See the core cronjob file for insights on how these injections are handled)                                                                                |
-| `_cron/_hourly/*`           | Hourly Cronjob Injection Scripts (See the core cronjob file for insights on how these injections are handled)                                                                               |
-| `_cron/_weekly/*`           | Weekly Cronjob Injection Scripts (See the core cronjob file for insights on how these injections are handled)                                                                              |
-| `_cron/_yearly/*`           | Yearly Cronjob Injection Scripts (See the core cronjob file for insights on how these injections are handled)                                                                             |
-| `_cron/_monthly/*`          | Monthly Cronjob Injection Scripts (See the core cronjob file for insights on how these injections are handled)                                                                            |
-| **CSS Injection Folder**    |                                                                                                                                                                                           |
-| **Administrator Module Hooks** |                                                                                                                                                                                           |
-| `_admin`                    | Folder to store executable files for the Administrator Module (See Administrator Site Module for more details)                                                                           |
-| `_admin/mod_setting.php`    | Easy Settings Script for Modules Page (See Administrator Site Module for more details)                                                                                                    |
-| **JS Injection Folder**     |                                                                                                                                                                                           |
-| `_js`                       | Put your JS files here. Files in this folder will be included when including `javascript.php` in the website's root folder. JavaScript.php will only load CSS files for the current chosen Site Module. Pay attention to the naming scheme to ensure your files are injected correctly. (See Administrator Site Module for more details) |
-| **Language Loadup Folder**  |                                                                                                                                                                                           |
-| `_lang`                     | Put your Language Files here. Files in this folder will be included at site startup. Language File for Site Mode will be loaded depending on the current active Site Mode and User Language / Existing Language File. Translation can also be done via the database translation key functionality. If you choose the database functionality, site modules language files will be loaded first. (See Administrator Site Module for more details) |
-| **WFC Loadup Folder**       |                                                                                                                                                                                           |
-| `_wfc`                      | Loadup folder for Site Widgets if the Site Module is using any. (See Administrator Site Module for more details)                                                                         |
-| **Functions Loadup Folder** |                                                                                                                                                                                           |
-| `_lib`                      | Put your Library Files here. Files in this folder will be included at site startup. Lib files will be loaded if the related Site Mode is activated for the User. Pay attention to the naming scheme to ensure your files are injected automatically at runtime. (See Administrator Site Module for more details) |
-| **MySQL Loadup Folder**     |                                                                                                                                                                                           |
-| `_mysql`                    | Put SQL Files here. Files in this folder will be loaded on execution of a site with the related site mode by a visiting user. Auto Installation and Check if all Database exists will take place on every site loadup. Pay attention to the naming schemes to let your files be installed automatically. (See Administrator Site Module for more details) |
-| **Themes Loadup Folder**    |                                                                                                                                                                                           |
-| `_theme`                    | Folder dedicated to your website theme files.                                                                                                                                              |
-| **Update Loadup Folder**    |                                                                                                                                                                                           |
-| `_update`                   | Folder for updates depending on the build number. See `updater.php` script or example site for more information. You can place updates for databases and more here. Mind the sample files as there is information inside them. Check the example site for how updating works, as there is a dummy update included! You can use files like `BUILDNUMBER.php` to make changes to the database if updating from a previous build number. |
-| **Config Loadup Folder**    |                                                                                                                                                                                           |
-| `_config/`                  | Folder for Site Module Configuration Files (See Administrator Site Module for more details)                                                                                               |
-| `_config/config_pre.php`    | Configuration to be loaded before Initial Site Startup (optional). This file mostly defines constants.                                                                                   |
-| `_config/config_post.php`   | Configuration to be loaded after Initial Site Startup (optional). This file mostly defines constants.                                                                                   |
-| `_config/config_global_pre.php` | Configuration to be loaded before Initial Site Startup globally for every Site Module.                                                                                                   |
-| `_config/permission.php`    | Declare permission set with `object[permission]` here. This will give the administrator module the ability to control permissions (if implemented).                                    |
-| `_config/config_global_post.php` | Configuration to be loaded globally for every Site Module before Initial Site Startup.                                                                                                   |
-| `_config/config.php`        | Configuration for your Site Module. See example site module in `_site` folder for information on setting up this file. This file mostly defines constants.                             |
-| **Site Modules Index Files**|                                                                                                                                                                                           |
-| `/load.php`                 | Site loadup file if the related Site Module is chosen (Startup File). This file will be executed as the start file if the related Site Module is chosen.                               |
-| `/version.php`              | Versioning information about the deployed site module.                                                                                                                                   |
-| `/changelog.php`            | Changelog information about the deployed site module.                                                                                                                                   |
-| `/preview.jpg`              | Site Module preview image.                                                                                                                                                                |
+### _admin
+See inside folders readme.md for more information.
 
+```
+./RNAME/_admin/
+├── mod_setting.php (Module settings script)
+```
 
-## 👆 Pre-Defined Variables
+### _config
+See inside folders readme.md for more information.
 
-Here you find a set of constants declared to make it easier to produce and develop site modules! These constants are always relative to your site Module and will come in handy, making your life easier when developing with this CMS! See inside the `_site/_administrator` Module to see implementations and files in different folders with explanations!
+```
+./RNAME/_config/
+├── config_pre.php (Pre-startup configuration)
+├── config_post.php (Post-startup configuration)
+├── global_pre.php (Global pre-startup configuration)
+├── global_post.php (Global post-startup configuration)
+├── global.php (Global configuration file)
+└── config.php (Main configuration file)
+```
 
-| **Constant Name**              | **Description**                                                                                                                                                                  |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `_HIVE_SITE_PATH_`             | Path to Site Modules Folder (Full). This constant can be used inside your site modules development, as it will be relative to the current visible front module.                  |
-| `_HIVE_SITE_PUBLIC_`           | Path to absolute Site Data Public folder!                                                                                                                                         |
-| `_HIVE_SITE_EXT_`              | Site's Extension Folder!                                                                                                                                                           |
-| `_HIVE_SITE_PRIVATE_`          | Path to absolute Site Data Private/Restricted folder!                                                                                                                             |
-| `_HIVE_SITE_REL_`              | Relative Path to Website Site Folder for URL Redirects!                                                                                                                           |
-| `_HIVE_SITEC_REL_`             | Relative Path to Website Site Folder for URL Redirects, without HTTPS and host part!                                                                                              |
-| `_HIVE_SITE_COOKIE_`           | Cookie Prefix to use for Site Module. This constant can be used inside your site modules development, as it will be relative to the current visible front module.                |
-| `_HIVE_SITE_PREFIX_`           | Database Prefix to use for Site Module. This constant can be used inside your site modules development, as it will be relative to the current visible front module.              |
-| `_HIVE_MODE_`                  | Currently active User Site Mode. This constant can be used inside your site modules development, as it will be relative to the current visible front module.                    |
-| `_HIVE_THEME_`                 | Currently active User Theme. This constant can be used inside your site modules development, as it will be relative to the current visible front module.                         |
-| `_HIVE_COLOR_`                 | Currently active User Theme Color. This constant can be used inside your site modules development, as it will be relative to the current visible front module.                  |
-| `_HIVE_LANG_`                  | Currently active User Language. This constant can be used inside your site modules development, as it will be relative to the current visible front module.                     |
-| `_HIVE_URL_CUR_`               | Currently defined values for URL Location Levels in the Name Array. This constant can be used inside your site modules development, as it will be relative to the current visible front module. |
+### _cron
+Store your Code for cronjobs in this folder. See example files in our example site module _tplsite which you can obtain in our official store at store.bugfish.eu!
 
+```
+./RNAME/
+├── _cron/
+│   ├── _daily/* (Daily cronjob injection scripts)
+│   ├── _hourly/* (Hourly cronjob injection scripts)
+│   ├── _weekly/* (Weekly cronjob injection scripts)
+│   ├── _yearly/* (Yearly cronjob injection scripts)
+│   └── _monthly/* (Monthly cronjob injection scripts)
+```
 
+### _css
+See inside folders readme.md for more information.
 
-## 👆 Setup Constants
+```
+./RNAME/_css/ (Add CSS files here)
+```
 
-Here you can find settings which can be applied in your site `Modules config.php` file! **Be sure to define all these values, otherwise this can lead to unforeseen errors!** See inside the `_skeleton` example Site Module to see default configurations and more! See inside the `_site/_skeleton` Module to see implementations and files in different folders with explanations!
+### _js
+See inside folders readme.md for more information.
 
-| **Constant Name**                       | **Description**                                                                                                                        |
-|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `_HIVE_BUILD_`                         | Current Build Number of your script, this is important if you want to use our updater script with your website module! Just set this to "1" if you are not sure what to do. |
-| `_HIVE_TITLE_`                         | Title for the Site Modules Web Page used in Tab Titles and in Themes for more.                                                        |
-| `_HIVE_TITLE_SPACER_`                  | Spacer for the title and name of page in tab title and other areas!                                                                    |
-| `_HIVE_PHP_DEBUG_`                     | If you set this to `true(1)`, PHP Errors will be displayed on page! It is advised to set this to `false(0)` on a productive version! |
-| `_HIVE_PHP_MODS_`                      | Here you can set which modules in PHP need to be installed to run your site module. If a module is missing an error page will be shown. Example: `array("gd", "mbstring", "modulename")` |
-| `_HIVE_MYSQL_DEBUG_`                   | If you set this to `true(1)`, MySQL Errors will be displayed on page! It is advised to set this to `false(0)` on a productive version! |
-| `_HIVE_CURL_LOGGING_`                  | Log CURL Class Requests? (`true/false`)                                                                                                 |
-| `_HIVE_IP_LIMIT_`                     | Block IPs after X Failures                                                                                                                |
-| `_HIVE_IP_REFERER_`                   | Log Referers? (`true/false`)                                                                                                              |
-| `_HIVE_CSRF_TIME_`                    | Default CSRF Code Valid Time in Seconds                                                                                                    |
-| `_CRON_ONLY_CLI_`                      | `True` - Only Cronjob Execution from Command Line | `False` - Allow Cronjob Execution in Browser                                        |
-| `$object["set"]["permission"]`         | Here you can add permissions to easily be used with the administrator interface or other modules of your site! Check the example `_skeleton` in the `_site` directory to see how you need to set up this variable. In the `_administrator` site you can see an implementation of this functionality. |
-| `$object["nav"]`                       | Array to create easy navigations on templates! See `_skeleton` or other sites as examples on how to use this array. It is stored in the `config.php` files of a site! |
+```
+./RNAME/_js/ (Add JS files here)
+```
 
+### _lang
+See inside folders readme.md for more information.
 
-| **User Settings**                                                        |                                                                         |
-|---------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| `_USER_MAX_SESSION_`                                                     | Maximum Days Sessions/Cookies are Valid                                |
-| `_USER_TOKEN_TIME_`                                                       | Time in Minutes token out of Activation Mails are Valid                 |
-| `_USER_AUTOBLOCK_`                                                         | Block Users after X Fail Logins (can be false)                          |
-| `_USER_WAIT_COUNTER_`                                                      | Time in Minutes User has to wait between Requests (anti flood)          |
-| `_USER_LOG_SESSIONS_`                                                       | Log old sessions? (Logins, Recoverys, Activations, Mail Changes) (true/false) |
-| `_USER_LOG_IP_`                                                             | Log User IPs in Database (true/false)                                   |
-| `_USER_REC_DROP_`                                                           | True - Remove Recovery Keys after user Successfully Logged In | false - Preserve Keys |
-| `_USER_MULTI_LOGIN_`                                                        | True - Allow Multi Login | false - Disable Multi Login (old session logout) |
-| `_USER_PF_SIGNS_`                                                           | Passwordfilter: Min Signs                                               |
-| `_USER_PF_CAPSIGNS_`                                                        | Passwordfilter: Min Capital Signs                                       |
-| `_USER_PF_SMSIGNS_`                                                          | Passwordfilter: Min Small Signs                                         |
-| `_USER_PF_SPSIGNS_`                                                          | Passwordfilter: Min Special Signs                                       |
-| `_USER_PF_NUMSIGNS_`                                                         | Passwordfilter: Min Numeric Signs                                       |
+```
+./RNAME/_lang/ (Add language files here)
+```
 
-| **Default Activation Scripts Config**                                    |                                                                         |
-|---------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| `_HIVE_USR_ACT_DISABLE_`                                                   | Disable the general User Activation page? (0/1)                        |
-| `_HIVE_USR_ACT_REFER_`                                                     | Refer to this path if you want to use special User Activation page for Site Mode |
-| `_HIVE_USR_REC_REFER_`                                                     | Refer to this path if you want to use special Recover Execution page for Site Mode |
-| `_HIVE_USR_REC_DISABLE_`                                                   | Disable the general Recover Activation page? (0/1)                     |
-| `_HIVE_USR_MC_REFER_`                                                       | Refer to this path if you want to use special Mail Activation page for Site Mode |
-| `_HIVE_USR_MC_DISABLE_`                                                     | Disable the general Mail Activation page? (0/1)                        |
+### _lib
+See inside folders readme.md for more information.
 
-| **Create Initial Files**                                                   |                                                                         |
-|---------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| `_HIVE_HTACCESS_WRITE_`                                                     | 1 - Create HTAccess | 0 - Do Not Create HTAccess                       |
-| `_HIVE_HTACCESS_HTTPS_FORWARD_`                                              | 1 - Forward to HTTPS | 0 - Not Forward                                |
-| `_HIVE_HTACCESS_WWW_FORWARD_`                                                | 1 - Forward to HTTPS | 0 - Not Forward                                |
-| `_HIVE_HTACCESS_REFRESH_`                                                    | 1 - REFRESH MODULE | 0 - Not Refresh Module                          |
-| `_HIVE_SITEMAP_URL_`                                                         | 1 - URL TO SITEMAP | 0 - NO URL IN SITEMAP IN ROBOTS.TXT           |
-| `_HIVE_ROBOT_SPAWN_`                                                          | 1 - Allow All | 2 - Allow nothing /| 0 Do not Spawn robots.txt      |
+```
+./RNAME/_lib/ (Add library files here)
+```
 
-| **TinyMCE**                                                                |                                                                         |
-|---------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| `_TINYMCE_PLUGINS_`                                                          | TinyMCE Plugin Items                                                    |
-| `_TINYMCE_MENU_BAR_`                                                         | TinyMCE Menu Items                                                       |
-| `_TINYMCE_TOOL_BAR_`                                                          | TinyMCE Toolbar Items                                                    |
+### _mysql
+See inside folders readme.md for more information.
 
-| **Captcha**                                                                |                                                                         |
-|---------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| `_CAPTCHA_CODE_`                                                             | Random Code for Captcha                                                 |
-| `_CAPTCHA_LINES_`                                                            | Count of Lines in Captcha                                               |
-| `_CAPTCHA_SQUARES_`                                                          | Count of Squares in Captcha                                             |
-| `_CAPTCHA_HEIGHT_`                                                           | Captcha Height Image                                                    |
-| `_CAPTCHA_WIDTH_`                                                            | Captcha Width Image                                                     |
-| `_CAPTCHA_COLORS_`                                                           | Colors for Captcha (Optional, can be false)                             |
+```
+./RNAME/_mysql/ (Add SQL files here for auto-installation)
+```
+
+### _theme
+See inside folders readme.md for more information.
+
+```
+./RNAME/_theme/ (Add theme files here)
+```
+
+### _update
+See inside folders readme.md for more information.
+
+```
+./RNAME/_update/ (Add update files here)
+```
+
+### _wfc
+See inside folders readme.md for more information.
+
+```
+./RNAME/_wfc/ (Add site widgets here)
+```
+
+### Files
+
+```
+./RNAME/
+├── load.php (Site loadup file)
+├── version.php (Versioning info)
+├── changelog.php (Changelog info)
+└── preview.jpg (Preview image)
+```
+
+## CSS Loadup 
+
+### Overview
+The `_css` folder is designated for storing CSS files that are automatically loaded into BugfishCMS via the HTML include at `/core/stylesheet.php`. This folder helps manage CSS code required for various styling needs depending on the user's login status.
+
+The typical files you might find in this folder include:
+- **CSS Files**: Containing styles relevant to the CMS functionalities.
+- **PHP Files**: These can also be used to include PHP code, with settings and initializations already handled at file load-up.
 
 
+### Auto-Loading Stylesheets
+CSS files in this folder are auto-loaded based on specific naming conventions:
+
+- **`css.global.*`**: These files are included for both logged-in and non-logged-in users.
+- **`css.restricted.*`**: These files are included only when the user is logged in.
+- **`css.public.*`**: These files are included only when the user is not logged in.
+
+### Available Variables
+Variables initialized from Site Module are available, also if this css file is an extrension for this site module you will get the following info:
+
+|Variable|Description|
+|-----|-----|
+|`$object["extension"]["info"]`| Current Extension version.php Array |
+|`$object["extension"]["path"]`| Current Extension Folder Path |
+|`$object["extension"]["name"]`| Current Extension Name |
+|`$object["extension"]["prefix"]`| Current Extension Table Prefix |
+|`$object["extension"]["cookie"]`| Current Extension Cookie Prefix |
 
 
-### MAIL
+## Javascript Loadup Folder
 
-| **Parameter**             | **Description**                                                                                                               |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| _SMTP_HOST_               | Set SMTP Host for Site Module [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_PORT_               | Set SMTP Port for Site Module [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_AUTH_               | Set SMTP Auth for Site Module (ssl/tls/false) [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_USER_               | Set SMTP User for Site Module [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_PASS_               | Set SMTP Pass for Site Module [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_SENDER_MAIL_        | Default Sender Mail Adr [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_SENDER_NAME_        | Default Sender Mail Name [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_MAILS_IN_HTML_      | All Mails sended as HTML? (false/true) [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_DEBUG_              | Mail Debug Mode (0, 1, 2, 3) - Use 0 for Production as this will result Debug Output on site! [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_MAILS_HEADER_       | Default Header for Mails [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_MAILS_FOOTER_       | Default Footer for Mails [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
-| _SMTP_INSECURE_           | Allow insecure SSL Connections? (true/false) [Initial Mail Connection Settings will be set in settings.php but can be overwritten by Site Module! Look there for required Constants to define!] |
+### Overview
+The `_js` folder is designated for storing JavaScript files that are automatically loaded into the BugfishCMS via the HTML include at `/core/javascript.php`. This folder helps manage JavaScript code required for various functionalities depending on the user's login status.
 
-### REDIS
+### Auto-Loading Scripts
+JavaScript files in this folder are auto-loaded based on specific naming conventions:
 
-| **Parameter**             | **Description**                  |
-|---------------------------|----------------------------------|
-| _REDIS_                   | Redis Activated? False/True      |
-| _REDIS_HOST_              | Redis Host                       |
-| _REDIS_PORT_              | Redis Port                       |
-| _REDIS_PREFIX_            | Redis Prefix                     |
-
-### Updater Settings
-
-| **Parameter**             | **Description**                  |
-|---------------------------|----------------------------------|
-| _UPDATER_TITLE_           | Title for the Updater on this Site |
-| _UPDATER_CODE_            | Code needed for Update execution? (can be false) |
-
-### Language Settings
-
-| **Parameter**             | **Description**                                          |
-|---------------------------|----------------------------------------------------------|
-| _HIVE_LANG_DEFAULT_       | Array with Default Language                             |
-| _HIVE_LANG_ARRAY_         | Array with valid Languages                              |
-| _HIVE_LANG_DB_            | False = Use Language Files in SITE/_lang / True = Use Language Database |
-
-### Theme Settings
-
-| **Parameter**             | **Description**                   |
-|---------------------------|-----------------------------------|
-| _HIVE_THEME_DEFAULT_      | Default Used Theme                |
-| _HIVE_THEME_ARRAY_        | Array with valid Themes           |
-| _HIVE_THEME_COLOR_DEFAULT_| Default Color for Dynamic Theme Colors |
-
-### URL Settings
-
-| **Parameter**             | **Description**                                                                                           |
-|---------------------------|-----------------------------------------------------------------------------------------------------------|
-| _HIVE_URL_SEO_            | STRING - GET VARIABLE SEO IN HTACCESS  | 0 - No SEO URLs Using                                          |
-| _HIVE_URL_GET_            | Only needed if _HIVE_URL_SEO_ == false [Array with Name for Get Location Level GET Variables]          |
-| _HIVE_URL_                | Hive System URL, which is provided at installation! Otherwise if one is set in Site Module, the one set in Site Module config will be used (this is meant for Multi site, otherwise you won't need to set this. Multi Site is for Multi Management Systems with multiple URLs on one system.] |
+- **`js.global.*`**: These files are included for both logged-in and non-logged-in users.
+- **`js.restricted.*`**: These files are included only when the user is logged in.
+- **`js.public.*`**: These files are included only when the user is not logged in.
 
 
+### Available Variables
+Variables initialized from Site Module are available, also if this js file is an extrension for this site module you will get the following info:
+
+|Variable|Description|
+|-----|-----|
+|`$object["extension"]["info"]`| Current Extension version.php Array |
+|`$object["extension"]["path"]`| Current Extension Folder Path |
+|`$object["extension"]["name"]`| Current Extension Name |
+|`$object["extension"]["prefix"]`| Current Extension Table Prefix |
+|`$object["extension"]["cookie"]`| Current Extension Cookie Prefix |
+
+## Language Files
+
+This folder _lang contains automatically loaded language files. These files belong to the current loaded Site Module. You can override Translation Keys by puttin them into the database for translations, so users can edit them onsite if you give them this possibility.
+
+Name files in this folder like: LANGUAGEKEY.php . LANGUAGEKEY is the string you define for the language in the available language array for your site module. See example or administrator Site Module for examples.
 
 
+## Configuration Folder
 
-## 👆 Installation
+### Overview
+The `_config` folder contains configuration files that are crucial for initializing different sections of BugfishCMS. These files are loaded at various stages of initialization to define settings, parameters, and behaviors.
+
+### Folder Contents
+See example configuration files present in this folder.
+|File|Description|
+|----|----|
+| global.php | Global Configuration Middleware |
+| global_post.php | Global Configuration Post |
+| global_pre.php | Global Configuration Pre|
+| config.php | Current Configuration Middleware |
+| config_post.php | Current Configuration Post |
+| config_pre.php | Current Configuration Pre |
+
+### Initialization
+
+Here you can find information on the initialization and how configuration files will be included.
+
+#### CMS Rule Constants
+
+|Constant|Description|
+|----|---|
+|\_HIVE_COOKIE_DOMAIN_|Cookie Domain to be used, default is false to use default domain (SET IN RULESET.CFG)|
+|\_HIVE_SERVER_CORE_|Default Server Core update URL is store.bugfish.eu (SET IN RULESET.CFG)|
+|\_HIVE_SERVER_|Default Server Store URLs are serialized array default is array("store.bugfish.eu") (SET IN RULESET.CFG)|
+|\_HIVE_PHP_DISPLAY_ERROR_ON_START_|Display errors on startup? Default is 0 (SET IN RULESET.CFG)|
+|\_HIVE_PHP_LOG_PATH_|Logging Path for PHP, default is false will use the default servers path (SET IN RULESET.CFG)|
+|\_HIVE_ALLOW_TOKEN_|Allow use of token switch site module script in _core/_action/token_switch.php? Default is true (SET IN RULESET.CFG)|
+|\_HIVE_MOD_CHANGES_|Allow use of developer.php? Default is false (SET IN RULESET.CFG)|
+|\_HIVE_MOD_FETCH_|Fetch Site Mode by url? Is Experimental Default is False (SET IN RULESET.CFG)|
+|\_INSTALLER_CODE_|Default is false, if set password needed for installation (SET IN RULESET.CFG)|
+|\_INSTALLER_PREFIX_|default Prefix is bcms_ for installer (SET IN RULESET.CFG)|
+|\_INSTALLER_COOKIE_|default cookie prefix is bcms_ for installer (SET IN RULESET.CFG)|
+|\_INSTALLER_TITLE_|installer title default is "bugfishCMS" (SET IN RULESET.CFG)|
+|\_HIVE_ADMIN_SITE_|Allow Switch action _core/_action/admin_Switch.php and switch to admin site side_by_side? (SET IN RULESET.CFG)|
+|\_HIVE_RESTRICT_UPDATE_|Updating only over Admin Interface? Disallow ./updater.php ?|
+
+#### Initializations
+
+|Variable / Constant|Description|
+|----|---|
+|`$_SESSION[_HIVE_COOKIE_."hive_mode"]`|Current Selected Site Module|
+|`$object["prefix"]`|DB Prefix like in Settings.php (Not Site Related, core related!)|
+|`$object["cookie"]`|Cookie Prefix like in Settings.php (Not Site Related, core related!)|
+|`$object["path"]`|Path to Document Root of Website like given in installer|
+|`$object["url"]`|Default page URL Like in Settings.php|
+|`$object["extensions_path"]`|array with active current hive mod extensions|
+|`$object["core_mode"]`|Current core version.php array X|
+|`$object["hive_mode"]`|Current hive Mode array x or False if not set! (error on loadup version.php)|
+|`$object["mysql"]`|Mysql object|
+|`$object["var"]`|Site Related variable Object, if no site active than Global Variable Object|
+|`$object["log"]`|Default Log Object (Core Log if no sitemod)|
+|`$object["var_glob"]`|Global Variables Object|
+|`$object["comment"]`|Commenting Class Object|
+|\_HIVE_CREATOR_|Creator Copyright String|
+|\_HIVE_MODE_ARRAY_|array with available hive modes|
+|\_HIVE_MODE_|Current hive Mode|
+|\_HIVE_MODE_ENV_OVR_|Apache var to get site mode per env on apache|
+|\_HIVE_SITE_PATH_|Path to _site/sitemod/|
+|\_HIVE_PATH_SITE_|Path to _site/|
+|\_HIVE_PATH_DATA_|Path to _data|
+|\_HIVE_PATH_OFF_|Path to _disable|
+|\_HIVE_PATH_SCRIPT_|Path to _script|
+|\_HIVE_PATH_IMAGE_OFF_|Path to _disable/_image|
+|\_HIVE_PATH_SCRIPT_OFF_|Path to _disable/_script|
+|\_HIVE_PATH_SITE_OFF_|Path to _disable/_site|
+|\_HIVE_PATH_IMAGE_|Path to _image|
+|\_HIVE_SITE_COOKIE_|Site Related Cookie Prefix|
+|\_HIVE_SITE_PREFIX_|Site Related Database Prefix|
+|\_HIVE_SITE_PATH_DATA_|Path to _data/SITEMOD/|
+|\_HIVE_SITE_PATH_EXT_|Path to _data/SITEMOD/_extension|
+|\_HIVE_SITE_PATH_EXT_OFF_|Path to _data/SITEMOD/_extension_disabled|
+|\_HIVE_SITE_PATH_PUBLIC_|Path to _data/SITEMOD/_public|
+|\_HIVE_SITE_PATH_PRIVATE_|Path to _data/SITEMOD/_private|
+|\_HIVE_SITE_PATH_DOMAIN_|Path to _data/SITEMOD/_domain|
+|\_HIVE_SITE_EXT_|Array of loaded extension pathes active|
+|\_HIVE_BUILD_|Current Module Build Number|
+|\_HIVE_VERSION_|Current Module Version Number|
+|\_HIVE_RNAME_|Current Module RNAME String|
+|\_HIVE_CRIT_ER_|This variable is only set if a critical error occured on the page.|
+|\_TABLE_LOG_|General Logging Table|
+|\_TABLE_LOG_IP_| IP Blacklist Table|
+|\_TABLE_LOG_BENCHMARK_| Benchmarking Table|
+|\_TABLE_LOG_CURL_|CURL Logging Table|
+|\_TABLE_LOG_MAIL_|Mail Logging Table|
+|\_TABLE_LOG_MYSQL_|Mysql Logging Table|
+|\_TABLE_LOG_REFERER_|Referer Logging Table|
+|\_TABLE_LOG_CRON_|Cronjob Logging Table|
+|\_TABLE_LOG_JS_|Javascript Logging Table|
+|\_TABLE_LOG_VISIT_|Visitors Logging Table|
+|\_TABLE_USER_|User Account Table|
+|\_TABLE_USER_EXTRAFIELDS_|User Extrafields Table|
+|\_TABLE_USER_SESSION_|User Sessions Table|
+|\_TABLE_USER_PERM_|User Permission Table|
+|\_TABLE_USER_GROUP_|User Group Table|
+|\_TABLE_USER_GROUP_PERM_|User Group Permission Table|
+|\_TABLE_USER_GROUP_LINK_|User Group Link Table|
+|\_TABLE_VAR_|Variables Table|
+|\_TABLE_LANG_|Language Table|
+|\_TABLE_MAIL_TPL_|Mail Template Table|
+|\_TABLE_API_|API Table|
+|\_TABLE_COMMENT_|Commenting Table|
+|\_TABLE_STORE_|Store Table|
+|\_TABLE_HUB_|Hub Software Table|
+|\_TABLE_TOKEN_|Token Site Modules Table|
+
+#### Pre Configuration
+
+|Constant|Description|
+|----|---|
+|global_pre.php|File Inclusion of Site Modules Globals|
+|config_pre.php|File Inclusion of Site Modules Config|
+|config_pre.php|File Inclusion of Site Modules Extension Config|
+
+#### Initializations
+
+|Variable / Constant|Description|
+|----|---|
+|\_HIVE_ACTION_MAILCHANGE_EXEC_|Enable Default Mail Change Forms?|
+|\_HIVE_ACTION_RECOVER_EXEC_|Enable Default Recover Account Forms?|
+|\_HIVE_ACTION_LOGIN_EXEC_|Enable Default Login Forms?|
+|\_HIVE_ACTION_ACTIVATE_EXEC_|Enable Default Activation Forms?|
+|\_HIVE_ACTION_REGISTER_EXEC_|Enable Default Register Forms?|
+|\_HIVE_LANG_|Contains current choosen Language|
+|\_HIVE_LANG_ARRAY_||
+|\_HIVE_LANG_DEFAULT_|	|
+|`$object["lang"]`| Current Language Translation Object|
+|\_HIVE_THEME_|Auto set by CMS to current Valid Theme (AUTOSET)|
+|\_HIVE_THEME_ARRAY_|Current Valid Theme Array default is array() (SETUPTABLE)|
+|\_HIVE_THEME_DEFAULT_|Current Default Fallback Theme is none set default is false (SETUPTABLE)	|
+|\_HIVE_COLOR_|Current Auto Determined Color (AUTOSET)|
+|\_HIVE_THEME_COLOR_DEFAULT_|Default Fallback Color Default is #FFFF00 (SETUPTABLE)|
+|`$object["url"]`|Current Primary URL|
+|\_HIVE_URL_|`$object["url"]` full url like in settings.php (SETUPABLE)|
+|\_HIVE_URL_REL_|Current Determined Protocol/URL + Relative Path from Settings.php  (AUTOSET)|
+|\_HIVE_URLC_REL_|only relative path like /relative  (AUTOSET)|
+|`$object["debug"]`|Debug Class|
+|`$object["eventbox"]`|Eventbox Class|
+|`$object["curl"]`|Curl Class|
+|`$object["crypt"]`|Crypt Class|
+|`$object["zip"]`|Zip Class|
+|`$object["benchmark"]`|Benchmark Class|
+|`$object["api"]`|API Class|
+|`$object["hitcounter"]`|Hitcounter Class|
+|`$object["2fa"]`|False set on Demand 2FA Class.|
+
+#### Configuration
+
+|Constant|Description|
+|----|---|
+|global.php|File Inclusion of Site Modules Globals|
+|config.php|File Inclusion of Site Modules Config|
+|config.php|File Inclusion of Site Modules Extension Config|
+
+#### Initializations
+
+|Variable / Constant|Description|
+|----|---|
+|\_TINYMCE_PLUGINS_|TinyMCE Plugins|
+|\_TINYMCE_MENU_BAR_|TinyMCE Menu Bar|
+|\_TINYMCE_TOOL_BAR_|TinyMCE Tool Bar|
+|\_USER_MAX_SESSION_|Maximum Days Sessions/Cookies are Valid|
+|\_USER_TOKEN_TIME_|Time in Minutes token out of Activation Mails are Valid|
+|\_USER_AUTOBLOCK_|Block Users after X Fail Logins (can be false)|
+|\_USER_WAIT_COUNTER_|Time in Minutes User has to wait between Requests (anti flood)|
+|\_USER_LOG_SESSIONS_|Log old sessions? (Logins, Recoverys, Activations, Mail Changes) (true/false)|
+|\_USER_LOG_IP_|Log User IPs in Database (true/false)|
+|\_USER_REC_DROP_|True - Remove Recovery Keys after user Succesfully Logged In | false - Preserve Keys|
+|\_USER_MULTI_LOGIN_|True - Allow Multi Login  | false - Disable Multi Login (old session logout)|
+|\_USER_PF_SIGNS_|Passwordfilter: Min Signs|
+|\_USER_PF_CAPSIGNS_|Passwordfilter: Min Capital Signs|
+|\_USER_PF_SMSIGNS_|Passwordfilter: Min Small Signs|
+|\_USER_PF_SPSIGNS_|Passwordfilter: Min Special Signs|
+|\_USER_PF_NUMSIGNS_|Passwordfilter: Min Numeric Signs|
+|\_USER_INITIAL_USERNAME_|Initial Created Username|
+|\_USER_INITIAL_USERPASS_|Initial Created User Password|
+|\_CAPTCHA_CODE_|Random Code for Captcha|
+|\_CAPTCHA_LINES_|Count of Lines in Captcha|
+|\_CAPTCHA_SQUARES_|Count of Squares in Captcha|
+|\_CAPTCHA_HEIGHT_|Captcha Height Image|
+|\_CAPTCHA_WIDTH_|Captcha Width Image|
+|\_CAPTCHA_COLORS_|Colors for Captcha (Optional, can be false)|
+|\_CAPTCHA_FONT_PATH_|If false Default Font will be used.|
+|\_SMTP_MAILS_HEADER_|Default Header for Mails|
+|\_SMTP_MAILS_FOOTER_|Default Footer for Mails|
+|\_SMTP_SENDER_MAIL_|Default Sender Mail Adr|
+|\_SMTP_SENDER_NAME_|Default Sender Mail Name|
+|\_SMTP_MAILS_IN_HTML_|All Mails sended as HTML? (false/true)|
+|\_SMTP_INSECURE_|Allow insecure SSL Connections? (true/false)|
+|\_SMTP_DEBUG_|Mail Debug Mode (0, 1, 2, 3) - Use 0 for Production as this will result Debug Output on site!|
+|\_SMTP_HOST_|SMTP Host |
+|\_SMTP_PORT_|SMTP Port |
+|\_SMTP_AUTH_|SMTP Auth (ssl/tls/false) |
+|\_SMTP_USER_|SMTP Username |
+|\_SMTP_PASS_|SMTP Password|
+|\_REDIS_|Redis Activated? False/True|
+|\_REDIS_HOST_|Redis Host|
+|\_REDIS_PORT_|Redis Port|
+|\_REDIS_PREFIX_|Redis Prefix|
+|\_UPDATER_TITLE_|Title for the Updater on this Site|
+|\_UPDATER_CODE_|Code needed for Update? (can be false)	|
+|\_HIVE_CURL_LOGGING_|Log CURL Class Requests? (true/false)|
+|\_HIVE_IP_LIMIT_|Block IPs after X Failures|
+|\_HIVE_REFERER_|Log Referers? (true/false)|
+|\_HIVE_CSRF_TIME_|Default CSRF Code Valid Time in Seconds	|
+|\_CRON_ONLY_CLI_|True - Only Cronjob Execution from Command Line | False - Allow Cronjob Execution in Browser|
+|\_HIVE_JS_ACTION_ACTIVE_|Activate Javascript Debugging Script|
+|\_HIVE_TITLE_|Website Title for Tabs and More|
+|\_HIVE_TITLE_SPACER_|Title Spacer for Tabs in Browser|
+|\_HIVE_PHP_DEBUG_|Show PHP Errors on website? (true/false)|
+|\_HIVE_PHP_MODS_|Array with needed PHP Modules, if not existant error is shown (example: array("mysqli", "mbstring", "gd")) |
+|\_HIVE_MYSQL_DEBUG_|Stop and Show MySQL Errors on Page if Happening? (Will always be logged in x_log_mysql table!) (true/false)|
+|\_HIVE_URL_SEO_|STRING - GET VARIABLE SEO IN HTACCESS  | 0 - No SEO URLs Using|
+|\_HIVE_URL_GET_|Only neeed if _HIVE_URL_SEO_ == false [Name for Get Location Variables]|
+| \_HIVE_SITE_URL\_ | Sites Used URL FULL Default is _HIVE_URL_REL_ (SETUPTABLE) |
+| \_HIVE_SITE_REL\_ | Full Url to subfolder _site/MODNAME (AUTOSET) |
+| \_HIVE_SITEC_REL\_ | Relative Url to subfolder _site/MODNAME (AUTOSET) |
+| \_HIVE_URL_CUR\_ | Current Values of Get or Rewrite Path Stations/Values on URL String or Exploded SEO String (Array) (AUTOSET) |
+| \_HIVE_URL_REL\_ | Relative Folder Path |
+| \_HIVE_URL_SEO\_ | True use SEO Pathes on Website with Rewrite / False use Get Variables like defined in _HIVE_URL_GET_  (SETUPTABLE) |
+| `$object["user"]` | Initialization of full user Class |
+| `$object["perm_user"]` | User Permission Object |
+| `$object["perm_user_glob"]` | Global User Permission Object |
+| `$object["perm_group"]` | User Group Permission Object |
+| `$object["perm_group_glob"]` | Global User Group Permission Object |
+| `$object["user_perm"]` | `$object["perm_user"]->item($object["user"]->user_id);` |
+| `$object["user_perm_glob"]` | `$object["perm_user_glob"]->item($object["user"]->user_id);` |
+| `$object["ipbl"]` | IPBL Object |
+| `$object["redis"]` | Redis Class if _REDIS_ is true |
+| `$object["mail"]` | Mail Object |
+| `$object["mail_template"]` | Mail Template Class Object |
+| `$object["referer"]` | Referer Class Object |
+| `$object["user_group"]` | Array with current goups (info of groups available for user unsorted array with user group infos primary) |
+| `$object["user_group"][x]["perm_obj"]` | Current Perm Item of Group |
+| `$object["user_group"][x]["perm_group_glob"]` | Current Global Perm Item of Group |
+
+
+#### Post Configuration
+
+|Constant|Description|
+|----|---|
+|global_post.php|File Inclusion of Site Modules Globals|
+|config_post.php|File Inclusion of Site Modules Config|
+|config_post.php|File Inclusion of Site Modules Extension Config|
+
+#### Extension Variables
+Variables initialized from Site Module are available, also if this config file is an extrension for this site module you will get the following info:
+
+|Variable|Description|
+|-----|-----|
+|$object["extension"]["info"]| Current Extension version.php Array |
+|$object["extension"]["path"]| Current Extension Folder Path |
+|$object["extension"]["name"]| Current Extension Name |
+|$object["extension"]["prefix"]| Current Extension Table Prefix |
+|$object["extension"]["cookie"]| Current Extension Cookie Prefix |
+
+## Installation
 
 Here you can find information on how to install a Site Module.
 
@@ -242,3 +461,23 @@ Here you can find information on how to install a Site Module.
 3. Move the extracted folder to the `_site` directory of the BugfishCMS installation.
    - Use only alphanumeric characters and underscores (`_`), but `_` only at the start.
 4. Use the administrator module or `./developer.php` script (ensure it's activated in `cfg_ruleset.php`) to use the new site module.
+
+## Example Module
+
+We have an example template image module for developers in our github repository in the _examples folder.
+
+|Module| Description|
+|---|----|
+|_tplsite | Website Module example to be investigated for developers! |
+|_cmsdocs | Integrated Documentation for bugfishCMS! |
+|_administrator| Integrated Feature Rich Administrator Module|
+|_adminbsbdocs| Documentation for AdminBSB Dashboard|
+|_frameworkdocs|Documentation for Bugfish Framework|
+|_lab| Auto-Redirect to Token Switch Page |
+|_simpletheme| Simple Theme Showcase Demo|
+|_software| Software Distribution Module we have running at software.bugfish.eu|
+|_storepage| CMS Distribution Module we have running at store.bugfish.eu|
+|_voltdocs| Volt Dashboard Theme Documentation |
+|_volttheme|Volt Theme Showcase Module|
+|_windmilldocs| Windmill Theme Showcase Module|
+|_windmilltheme| Windmill Theme Documentation|
