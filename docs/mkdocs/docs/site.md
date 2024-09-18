@@ -294,11 +294,10 @@ Here you can find information on the initialization and how configuration files 
 
 |Variable / Constant|Description|
 |----|---|
-|\_HIVE_ACTION_MAILCHANGE_EXEC_|Enable Default Mail Change Forms?|
-|\_HIVE_ACTION_RECOVER_EXEC_|Enable Default Recover Account Forms?|
-|\_HIVE_ACTION_LOGIN_EXEC_|Enable Default Login Forms?|
-|\_HIVE_ACTION_ACTIVATE_EXEC_|Enable Default Activation Forms?|
-|\_HIVE_ACTION_REGISTER_EXEC_|Enable Default Register Forms?|
+|\_HIVE_ACTION_MAILCHANGE_|Enable Default Mail Change Forms?|
+|\_HIVE_ACTION_RECOVER_|Enable Default Recover Account Forms?|
+|\_HIVE_ACTION_LOGIN_|Enable Default Login Forms?|
+|\_HIVE_ACTION_REGISTER_|Enable Default Register Forms?|
 |\_HIVE_LANG_|Contains current choosen Language|
 |\_HIVE_LANG_ARRAY_||
 |\_HIVE_LANG_DEFAULT_|	|

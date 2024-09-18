@@ -310,7 +310,7 @@
                         <ul class="dropdown-menu">
                             <li class="header"><?php echo $object["lang"]->translate("admin_top_t_notify"); ?></li>
                             <li class="body">
-                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 204px;"><ul class="menu" style="overflow: hidden; width: auto; height: 254px;">
+                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;"><ul class="menu" style="overflow: hidden; width: auto; height: 254px;">
 									<?php foreach($notify_ar as $key => $value) { ?>
                                     <li>
                                         <a href="<?php echo @$value["url"]; ?>" class=" waves-effect waves-block">
@@ -353,7 +353,7 @@
                         <ul class="dropdown-menu">
                             <li class="header"><?php echo $object["lang"]->translate("admin_top_t_cal"); ?></li>
                             <li class="body">
-                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 204px;"><ul class="menu" style="overflow: hidden; width: auto; height: 254px;">
+                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;"><ul class="menu" style="overflow: hidden; width: auto; height: 254px;">
 									<?php foreach($cal_ar as $key => $value) { ?>
                                     <li>
                                         <a href="<?php echo @$value["url"]; ?>" class=" waves-effect waves-block">
@@ -405,7 +405,7 @@
                         <ul class="dropdown-menu">
                             <li class="header"><?php echo $object["lang"]->translate("admin_top_t_mod"); ?></li>
                             <li class="body">
-                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 204px;"><ul class="menu tasks" style="overflow-y: scroll; width: auto; height: 254px;">
+                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;"><ul class="menu tasks" style="overflow-y: scroll; width: auto; height: 254px;">
 
                                     <li>
                                         <a href="<?php echo './?'._HIVE_URL_GET_[0].'='._HIVE_URL_CUR_[0].'&'._HIVE_URL_GET_[1].'='._HIVE_URL_CUR_[1].'&hive__change_tmode=*'; ?>" class=" waves-effect waves-block">
@@ -444,7 +444,7 @@
                         <ul class="dropdown-menu">
                             <li class="header"><?php echo $object["lang"]->translate("admin_top_t_lang"); ?></li>
                             <li class="body">
-                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 204px;"><ul class="menu tasks" style="overflow-y: scroll; width: auto; height: 254px;">
+                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;"><ul class="menu tasks" style="overflow-y: scroll; width: auto; height: 254px;">
 
 		
 								<?php foreach($lang_ar as $key => $value) {  ?>
@@ -477,7 +477,7 @@
                         <ul class="dropdown-menu"> 
                             <li class="header"><?php echo $object["lang"]->translate("admin_top_t_theme"); ?></li>
                             <li class="body">
-                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 204px;"><ul class="menu tasks " style="overflow-y: scroll; width: auto; height: 254px;">
+                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;"><ul class="menu tasks " style="overflow-y: scroll; width: auto; height: 254px;">
 
 		
 								<?php foreach(_HIVE_THEME_ARRAY_ as $key => $value) {   

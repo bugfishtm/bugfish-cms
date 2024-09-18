@@ -327,48 +327,8 @@
 					} else { if($message) { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_empty")); } return "empty"; }
 				} else { if($message) { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_ipban")); } return "banned"; }
 			} return false; }	
-			
-		function hive__template_recover_execute($object, $get_token = "ref_token", $get_user = "ref_user", $message = true, $redirect = false) {
-			// Check if Determination Values are set.
-			if(!is_numeric(@$_GET[$get_user]) OR !isset($_GET[$get_token])) {
-				if($message) { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_empty")); } return "empty";
-			} $code = false;
-			// Recover Password with token per Mail	
-			if ($object["user"]->recover_token_valid(@$_GET[$get_user], @$_GET[$get_token])) {
-				// Did user click on button to change to new password?
-				if (isset($_POST["recoverbut"])) {
-					// Check for CSRF Class Validation of $_post Token is set or Object is not created (csrf)
-					if (!is_object($object["csrf"])) { 
-					} else {
-						if ($object["csrf"]->check($_POST["token"])) {
-						} else { if($message) {  $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_csrf")); } return "csrf"; }	
-					}
-					if (@trim($_POST["rec_pass"]) != "") {
-						if ($_POST["rec_pass"] == $_POST["rec_pass_confirm"]) {
-							if($object["user"]->passfilter_check($_POST["rec_pass"])) {
-								if ($object["user"]->recover_confirm($_GET[$get_user], $_GET[$get_token], $_POST["rec_pass"])) {
-									if($message) { $object["eventbox"]->ok($object["lang"]->translate("hive_login_msg_re_ok")); }
-									if($redirect) { Header("Location: ".$redirect.""); exit(); }
-									return "recexec_ok";
-								} else {
-									if($message) { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_re_err"));}
-									if($redirect) { Header("Location: ".$redirect.""); exit(); }
-									return "recexec_err";
-								}  
-							} else { if($message) { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_re_passfiltererr")); } 
-								if($redirect) { Header("Location: ".$redirect.""); exit(); } return "recexec_pwmissingrequirements"; } 
-						} else { if($message) { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_re_nomatch")); } 
-								if($redirect) { Header("Location: ".$redirect.""); exit(); } return "recexec_pwnomatch"; }				
-					} else {if($message) { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_empty"));}   
-						if($redirect) { Header("Location: ".$redirect.""); exit(); } return "recexec_fieldmissing"; } 				
-				} 
-			} else { 
-				if($message) { $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_re_pwtexpire")); }
-				$code = "recexec_expire";	
-			} if($redirect) { Header("Location: ".$redirect.""); exit(); } return $code; }
-			
-		function hive__template_recover_request($object, $rec_url = false, $get_token = "rec_token", $get_user = "rec_user", $mailtemplate = "_RECOVER_", $message = true, $redirect = false) {
-			if($object["user"]->user_loggedIn) { if($message) {$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_rr_nologin")); } if($redirect) { Header("Location: ".$redirect.""); exit(); } return "already_logged_in"; }
+
+		function hive__template_recover_request($object, $rec_url = false, $get_token = "rec_token", $get_user = "rec_user") {
 			if (isset($_POST["resetbutton"])) {
 				if (@trim(@$_POST["mail"]) != "") {	
 					// Check for CSRF Class Validation of $_post Token is set or Object is not created (csrf)
@@ -378,24 +338,16 @@
 						} else { if($message) {  $object["eventbox"]->error($object["lang"]->translate("hive_login_msg_csrf")); } return "csrf"; }	
 					}													
 					$object["user"]->recover_request($_POST["mail"]);
-					if ($object["user"]->rec_request_code == 1) {	
-							$object["mail_template"]->set_template($mailtemplate);	
-							$newurlx =  _HIVE_SITE_URL_ . "/".$rec_url;
-							if(@strpos(@$newurlx, "?") > 0) { $newurlx .= "&"; } else { $newurlx .= "?"; }
-							$object["mail_template"]->add_substitution("_ACTION_URL_", $newurlx.$get_token."=" . $object["user"]->mail_ref_token . "&".$get_user."=" . $object["user"]->mail_ref_user . ""); 
-							$title = $object["mail_template"]->get_subject(true);
-							$content = $object["mail_template"]->get_content(true);								
-							$object["mail"]->send($object["user"]->mail_ref_receiver, $object["user"]->mail_ref_receiver, $title, $content);
-							if($message) { $object["eventbox"]->ok($object["lang"]->translate("hive_login_msg_rr_recnok")); }
-							if($redirect) { Header("Location: ".$redirect.""); exit(); }}
-					if ($object["user"]->rec_request_code == 3) { 
-						$vartmp = round($object["user"]->recover_request_time($object["user"]->mail_ref_user) / 60, 0);
-						if($message) {$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_rr_recwait")); }
-						if($redirect) { Header("Location: ".$redirect.""); exit(); }}
-					if ($object["user"]->rec_request_code == 2) { if($message) {$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_rr_recnewunk")); } if($redirect) { Header("Location: ".$redirect.""); exit(); }}
-					if ($object["user"]->rec_request_code == 4) { if($message) {$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_rr_recnope")); } if($redirect) { Header("Location: ".$redirect.""); exit(); }}
-					if ($object["user"]->rec_request_code == 5) { if($message) {$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_rr_recnopede")); } if($redirect) { Header("Location: ".$redirect.""); exit(); }}					
+					if ($object["user"]->rec_request_code == 1) {
+							$current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+							if($object["mail"]->send($_POST["mail"], $_POST["mail"], $object["lang"]->translate("hive_login_mail_title_rec"), $object["lang"]->translate("hive_login_mail_pre_rec")."<br /><a href='".$current_url."?rec_token=".$object["user"]->mail_ref_token."&rec_user=".$object["user"]->mail_ref_user."'>".$current_url."?rec_token=".$object["user"]->mail_ref_token."&rec_user=".$object["user"]->mail_ref_user."</a>", true, _SMTP_MAILS_FOOTER_, _SMTP_MAILS_HEADER_, false))
+							{ return 1; } else { return "errmail"; }
+					}
+					//if ($object["user"]->rec_request_code == 3) { 
+					//	$vartmp = round($object["user"]->recover_request_time($object["user"]->mail_ref_user) / 60, 0);
+					//	if($message) {$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_rr_recwait")); }
+					//	if($redirect) { Header("Location: ".$redirect.""); exit(); }}
 					return @$object["user"]->rec_request_code;
-				} else {if($message) {$object["eventbox"]->error($object["lang"]->translate("hive_login_msg_empty")); } if($redirect) { Header("Location: ".$redirect.""); exit(); } }
+				} else { }
 			} return false;  					
 		}				

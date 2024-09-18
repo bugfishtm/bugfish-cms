@@ -550,6 +550,8 @@
 	#################################################################################################################################################
 	// Init Contants out of Variable Classes
 	#################################################################################################################################################
+		if(is_array($object["hive_mode"])) {  $object["var"] 			= 	new x_class_var($object["mysql"], _TABLE_VAR_, _HIVE_MODE_); }
+			else { $object["var"] 			= 	new x_class_var($object["mysql"], _TABLE_VAR_, ""); }
 		$object["var"]->init_constant();			
 		$object["var_glob"]->init_constant();			
 		
@@ -670,7 +672,13 @@
 	#################################################################################################################################################
 		if(!_HIVE_URL_SEO_) { 
 			define('_HIVE_URL_CUR_', array(@$_GET[_HIVE_URL_GET_[0]], @$_GET[_HIVE_URL_GET_[1]], @$_GET[_HIVE_URL_GET_[2]], @$_GET[_HIVE_URL_GET_[3]], @$_GET[_HIVE_URL_GET_[4]])); 
-		} else {  $tmp = explode("/", @$_GET[_HIVE_URL_SEO_]); define('_HIVE_URL_CUR_', array(@$tmp[0], @$tmp[1], @$tmp[2], @$tmp[3], @$tmp[4]));}	    		
+		} else {  
+			if(isset($_GET[_HIVE_URL_SEO_])) { 
+				$tmp = explode("/", @$_GET[_HIVE_URL_SEO_]); define('_HIVE_URL_CUR_', array(@$tmp[0], @$tmp[1], @$tmp[2], @$tmp[3], @$tmp[4]));
+			} else {
+				define('_HIVE_URL_CUR_', array(false, false, false, false, false));
+			}
+		}	    		
 		
 	#################################################################################################################################################
 	// User Init	
@@ -766,7 +774,6 @@
 		$object["mail"]->smtpdebuglevel(_SMTP_DEBUG_);	
 		$object["mail"]->allow_insecure_ssl_connections(_SMTP_INSECURE_);		
 		$object["mail"]->logging($object["mysql"], _TABLE_LOG_MAIL_, false, $tmp_type);	
-		unset($tmp_type);
 
 	#################################################################################################################################################
 	// Mail Template Settings
@@ -784,6 +791,7 @@
 		$object["referer"] = new x_class_referer($object["mysql"], _TABLE_LOG_REFERER_, @$tmp_host);	
 		if(_HIVE_REFERER_) 	{ $object["referer"]->execute($tmp_type); }
 		unset($tmp_host);
+		unset($tmp_type);
 
 	#################################################################################################################################################
 	// Language Initializations	

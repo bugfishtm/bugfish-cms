@@ -39,8 +39,8 @@ The current page demonstrates the core functionalities of the CMS system, showca
 | **Login and Account Execution Functions** | | |
 | `hive__template_mail_activate` | Execution to activate new mail. | `$object`, `$get_token = "mai_token"`, `$get_user = "mai_user"`, `$message = true`, `$redirect = _HIVE_URL_REL_` |
 | `hive__template_user_activate` | Execution to activate a user. | `$object`, `$get_token = "act_token"`, `$get_user = "act_user"`, `$message = true`, `$redirect = _HIVE_URL_REL_` |
-| `hive__template_recover_exec` | Recover with or without a new password / Activate Function Execution. | `$object`, `$rec_url = false`, `$get_token = "rec_token"`, `$get_user = "rec_user"`, `$mailtemplate = "_RECOVER_"`, `$message = true`, `$redirect = _HIVE_URL_REL_` |
-| `hive__template_login_exec` | Login Executions. | `$object`, `$cookies_allow = false` |
+| `hive__template_recover` | Request a new Recover of Account and Send Mail to Account. | `$object`, `$rec_url = false`, `$get_token = "rec_token"`, `$get_user = "rec_user"`, `$message = true`, `$redirect = _HIVE_URL_REL_` |
+| `hive__template_login` | Login Executions. | `$object`, `$cookies_allow = false` |
 
 
 ## Various

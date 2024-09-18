@@ -126,6 +126,7 @@
 									echo '<font color="red">The content you have requested is not available anymore. It may has been deleted and needs to be redeployed for you to view this website!</font>';
 								}
 							} else {
+								$object["ipbl"]->increase();
 								echo '<font color="red">The provided access code has not been found or is expired!</font>';
 							}
 						}
