@@ -708,6 +708,11 @@
 		$object["user"]->groups(_TABLE_USER_GROUP_, _TABLE_USER_GROUP_LINK_);		
 		$object["user"]->extrafields(_TABLE_USER_EXTRAFIELDS_);		
 		$object["user"]->init();		
+		$object["user"]->user_add_field(" user_street TEXT NULL");		
+		$object["user"]->user_add_field(" user_postcode TEXT NULL");		
+		$object["user"]->user_add_field(" user_country TEXT NULL");		
+		$object["user"]->user_add_field(" user_region TEXT NULL");		
+		$object["user"]->user_add_field(" user_tel TEXT NULL");		
 		
 	#################################################################################################################################################
 	// User Permissions
