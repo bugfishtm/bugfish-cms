@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
       
       
+      
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -1230,30 +1231,26 @@
 <h3 id="method-1-choose-module-from-store">Method 1: Choose Module from Store</h3>
 <ol>
 <li>Login to the Administrator Site Module.</li>
-<li>Navigate to "Store".</li>
-<li>Download the desired image module through the web interface.</li>
-<li>Navigate to the "Image Module" area of the Administrator Module.</li>
-<li>Install the uploaded image template with a desired name.</li>
-<li>Follow the required steps of the image module to deploy the website by navigating to the website images subfolder or Apache2 vhost created for this image template.</li>
+<li>Go to the "Image" area in the "Extension" Section of the Administrator Module.</li>
+<li>Download the desired image module through the web interface in the "Store" Tab.</li>
+<li>Install the uploaded image template in the "Template" Tab.</li>
+<li>Navigate to your uploaded folder <code>example.domain/_image/FOLDERNAME/</code> with your web browser and follow the website images instruction or create necessary files depending on the deployed website image and its instructions. You can find the installed Image Website now in the "Installed" Tab of the Administrator Module.</li>
 </ol>
 <h3 id="method-2-upload-in-administrator-module">Method 2: Upload in Administrator Module</h3>
 <ol>
 <li>Open the Administrator Module in your web browser.</li>
 <li>Login as Administrator or privileged user.</li>
-<li>Go to the "Image Module" area and select "Upload Manually".</li>
-<li>Upload the image's .zip file.</li>
-<li>Install the uploaded image template with a desired name.</li>
-<li>Follow the required steps of the image module to deploy the website by navigating to the website images subfolder or Apache2 vhost created for this image template.</li>
+<li>Go to the "Image" area in the "Extension" Section of the Administrator Module.</li>
+<li>Upload the image's .zip file in the "Upload" Tab.</li>
+<li>Install the uploaded image template in the "Template" Tab.</li>
+<li>Navigate to your uploaded folder <code>example.domain/_image/FOLDERNAME/</code> with your web browser and follow the website images instruction or create necessary files depending on the deployed website image and its instructions. You can find the installed Image Website now in the "Installed" Tab of the Administrator Module.</li>
 </ol>
 <h3 id="method-3-upload-manually">Method 3: Upload Manually</h3>
 <ol>
 <li>Login to your web server with FTP/SFTP.</li>
 <li>Unpack the required Site Modules folder.</li>
-<li>Move the extracted folder containing the files like <code>version.php</code> to the <code>_image</code> directory of the BugfishCMS installation.<ul>
-<li>Use only alphanumeric characters for the deployment folder. Official modules often use an underscore at the start, this is okay.</li>
-</ul>
-</li>
-<li>Navigate to your uploaded folder <code>example.domain/_image/FOLDERNAME/htdocs/</code> with your web browser and follow the website images instruction or create necessary files depending on the deployed website image and its instructions.</li>
+<li>Move the extracted folder containing the files like <code>version.php</code> to the <code>_image</code> directory of the BugfishCMS installation. (like _image/MODNAME/version.php). Use only alphanumeric characters for the deployment folder. Official modules often use an underscore at the start, this is okay.</li>
+<li>Navigate to your uploaded folder <code>example.domain/_image/FOLDERNAME/</code> with your web browser and follow the website images instruction or create necessary files depending on the deployed website image and its instructions. You can find the installed Image Website now in the "Installed" Tab of the Administrator Module.</li>
 </ol>
 <h2 id="example-module">Example Module</h2>
 <p>We have an example template image module for developers in our github repository in the _examples folder.</p>
@@ -1268,6 +1265,14 @@
 <tr>
 <td>_tplimage</td>
 <td>Website Image Module example to be investigated for developers!</td>
+</tr>
+<tr>
+<td>_tplanuko</td>
+<td>Example Webite Image Module containing Anuko Time Tracking Software!</td>
+</tr>
+<tr>
+<td>_tplwordpress</td>
+<td>Example Webite Image Module containing Wordpress</td>
 </tr>
 </tbody>
 </table></div>

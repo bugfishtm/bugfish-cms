@@ -39,28 +39,28 @@ Image modules:
 ### Method 1: Choose Module from Store
 
 1. Login to the Administrator Site Module.
-2. Navigate to "Store".
-3. Download the desired image module through the web interface.
-4. Navigate to the "Image Module" area of the Administrator Module.
-5. Install the uploaded image template with a desired name.
-6. Follow the required steps of the image module to deploy the website by navigating to the website images subfolder or Apache2 vhost created for this image template.
+2. Go to the "Image" area in the "Extension" Section of the Administrator Module.
+3. Download the desired image module through the web interface in the "Store" Tab.
+4. Install the uploaded image template in the "Template" Tab.
+5. Navigate to your uploaded folder `example.domain/_image/FOLDERNAME/` with your web browser and follow the website images instruction or create necessary files depending on the deployed website image and its instructions. You can find the installed Image Website now in the "Installed" Tab of the Administrator Module.
+
 
 ### Method 2: Upload in Administrator Module
 
 1. Open the Administrator Module in your web browser.
 2. Login as Administrator or privileged user.
-3. Go to the "Image Module" area and select "Upload Manually".
-4. Upload the image's .zip file.
-5. Install the uploaded image template with a desired name.
-6. Follow the required steps of the image module to deploy the website by navigating to the website images subfolder or Apache2 vhost created for this image template.
+3. Go to the "Image" area in the "Extension" Section of the Administrator Module.
+4. Upload the image's .zip file in the "Upload" Tab.
+5. Install the uploaded image template in the "Template" Tab.
+6. Navigate to your uploaded folder `example.domain/_image/FOLDERNAME/` with your web browser and follow the website images instruction or create necessary files depending on the deployed website image and its instructions. You can find the installed Image Website now in the "Installed" Tab of the Administrator Module.
+
 
 ### Method 3: Upload Manually
 
 1. Login to your web server with FTP/SFTP.
 2. Unpack the required Site Modules folder.
-3. Move the extracted folder containing the files like `version.php` to the `_image` directory of the BugfishCMS installation.
-	- Use only alphanumeric characters for the deployment folder. Official modules often use an underscore at the start, this is okay.
-4. Navigate to your uploaded folder `example.domain/_image/FOLDERNAME/htdocs/` with your web browser and follow the website images instruction or create necessary files depending on the deployed website image and its instructions.
+3. Move the extracted folder containing the files like `version.php` to the `_image` directory of the BugfishCMS installation. (like _image/MODNAME/version.php). Use only alphanumeric characters for the deployment folder. Official modules often use an underscore at the start, this is okay.
+4. Navigate to your uploaded folder `example.domain/_image/FOLDERNAME/` with your web browser and follow the website images instruction or create necessary files depending on the deployed website image and its instructions. You can find the installed Image Website now in the "Installed" Tab of the Administrator Module.
 
 ## Example Module
 
@@ -69,3 +69,5 @@ We have an example template image module for developers in our github repository
 |Module| Description|
 |---|----|
 |_tplimage | Website Image Module example to be investigated for developers! |
+|_tplanuko | Example Webite Image Module containing Anuko Time Tracking Software! |
+|_tplwordpress | Example Webite Image Module containing Wordpress |

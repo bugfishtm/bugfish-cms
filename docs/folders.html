@@ -77,7 +77,6 @@
 	<meta property="og:image" content="./meta.png">
     
     
-    
       
     
     
@@ -1340,36 +1339,388 @@
 <td>Stores external actions requested by CMS PHP scripts.</td>
 </tr>
 <tr>
+<td>_core/_action/admin_switch.php</td>
+<td>Page to Switch between Backend and Frontend. Can be accessed diretly through browser.</td>
+</tr>
+<tr>
+<td>_core/_action/js_debug_action.php</td>
+<td>External Action for the Debugging of Javascript Code, if Activated in Config will Log Errors in Javascript Commands in the Logging Table.</td>
+</tr>
+<tr>
+<td>_core/_action/token_switch.php</td>
+<td>Page to switch between Site Modules with Tokens if activated in cfg-ruleset.php Can be accessed diretly through browser.</td>
+</tr>
+<tr>
+<td>_core/_action/user_activate.php</td>
+<td>General Action Script to Activate Accounts via Mail. Can be accessed diretly through browser if activated in Site Modules Config.</td>
+</tr>
+<tr>
+<td>_core/_action/user_login.php</td>
+<td>General Login page. Can be accessed diretly through browser if activated in Site Modules Config.</td>
+</tr>
+<tr>
+<td>_core/_action/user_logout.php</td>
+<td>General Logout Page.</td>
+</tr>
+<tr>
+<td>_core/_action/user_mail_change.php</td>
+<td>Change Mail of current Account Page. Can be accessed diretly through browser if activated in Site Modules Config.</td>
+</tr>
+<tr>
+<td>_core/_action/user_recover.php</td>
+<td>Recover Account Password per Mail if not Logged in. Can be accessed diretly through browser if activated in Site Modules Config.</td>
+</tr>
+<tr>
+<td>_core/_action/user_register.php</td>
+<td>Register New Account. Can be accessed diretly through browser if activated in Site Modules Config.</td>
+</tr>
+<tr>
 <td><strong>_core/_captcha</strong></td>
 <td>Contains captcha images for inclusion in your project. Refer to the documentation for session variable details to store captcha tokens.</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.comment.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.comment"]</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.contact.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.contact"]</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.download.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.download"]</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.guestbook.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.guestbook"]</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.login.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.login"]</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.member.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.member"]</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.misc.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.misc"]</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.newsletter.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.newsletter"]</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.register.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.register"]</td>
+</tr>
+<tr>
+<td>_core/_captcha/captcha.reset.php</td>
+<td>Capchta Image with Code Generation at $<em>SESSION[HIVE_SITE_COOKIE</em>."captcha.reset"]</td>
 </tr>
 <tr>
 <td><strong>_core/_error</strong></td>
 <td>Default error templates used in <code>.htaccess</code> and for project integration. Use as full-page templates to include HTTP error codes.</td>
 </tr>
 <tr>
+<td>_core/_error/error.400.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.401.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.403.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.404.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.500.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.501.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.502.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.503.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.504.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.520.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.521.php</td>
+<td>Error File</td>
+</tr>
+<tr>
+<td>_core/_error/error.533.php</td>
+<td>Error File</td>
+</tr>
+<tr>
 <td><strong>_core/_font</strong></td>
 <td>Stores included font files. Check the license for each font in the documentation or the <code>_licenses</code> folder.</td>
+</tr>
+<tr>
+<td>_core/_font/font.captcha_fallback.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Changa-Bold.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Changa-ExtraBold.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Changa-ExtraLight.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Changa-Light.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Changa-Medium.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Changa-Regular.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Changa-SemiBold.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Changa-VariableFont_wght.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.ComicNeue-Bold.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.ComicNeue-BoldItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.ComicNeue-Italic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.ComicNeue-Light.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.ComicNeue-LightItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.ComicNeue-Regular.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-Black.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-BlackItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-Bold.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-BoldItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-Italic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-Light.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-LightItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-Regular.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-Thin.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Lato-ThinItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-Black.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-BlackItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-Bold.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-BoldItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-Italic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-Light.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-LightItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-Medium.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-MediumItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-Regular.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-Thin.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.Roboto-ThinItalic.ttf</td>
+<td>Font File</td>
+</tr>
+<tr>
+<td>_core/_font/font.RockSalt-Regular.ttf</td>
+<td>Font File</td>
 </tr>
 <tr>
 <td><strong>_core/_framework</strong></td>
 <td>Contains Bugfish Framework files included automatically in <code>javascript.php</code> and <code>stylesheet.php</code> during initialization.</td>
 </tr>
 <tr>
-<td><strong>_core/_image</strong></td>
+<td>_core/_image**</td>
 <td>Default JPG/PNG/ICO images used in various CMS sections.</td>
+</tr>
+<tr>
+<td>_core/_image/image.cms_banner.jpg</td>
+<td>Image File</td>
+</tr>
+<tr>
+<td>_core/_image/image.cms_logo.jpg</td>
+<td>Image File</td>
+</tr>
+<tr>
+<td>_core/_image/image.cms_logo_alpha.png</td>
+<td>Image File</td>
+</tr>
+<tr>
+<td>_core/_image/image.cms_logo_alpha_dark.png</td>
+<td>Image File</td>
+</tr>
+<tr>
+<td>_core/_image/image.favicon.ico</td>
+<td>Image File</td>
+</tr>
+<tr>
+<td>_core/_image/image.flat_background.jpg</td>
+<td>Image File</td>
+</tr>
+<tr>
+<td>_core/_image/image.framework_banner.jpg</td>
+<td>Image File</td>
+</tr>
+<tr>
+<td>_core/_image/image.framework_logo.jpg</td>
+<td>Image File</td>
+</tr>
+<tr>
+<td>_core/_image/image.framework_logo_small.jpg</td>
+<td>Image File</td>
+</tr>
+<tr>
+<td>_core/_image/image.user_profile.png</td>
+<td>Image File</td>
 </tr>
 <tr>
 <td><strong>_core/_lang</strong></td>
 <td>Default language translation files. Automatically loaded based on the <code>_HIVE_LANG_</code> constant, which controls the displayed language.</td>
 </tr>
 <tr>
+<td>_core/_lang/en.php</td>
+<td>Default English Translations if not overwritten by Site Module Language Files, mostly for Files in _action in the Core Folder.</td>
+</tr>
+<tr>
 <td><strong>_core/_lib</strong></td>
 <td>Core function library of the CMS, included automatically during site initialization.</td>
 </tr>
 <tr>
+<td>_core/_lib/lib.adminbsb.php</td>
+<td>Default Functions for the AdminBSB Dashboard Template</td>
+</tr>
+<tr>
+<td>_core/_lib/lib.hive.php</td>
+<td>bugfishCMS Core Function Library for various purposes.</td>
+</tr>
+<tr>
+<td>_core/_lib/lib.simple.php</td>
+<td>Default Functions for the Simple Template</td>
+</tr>
+<tr>
+<td>_core/_lib/lib.volt.php</td>
+<td>Default Functions for the Volt Dashboard Template</td>
+</tr>
+<tr>
+<td>_core/_lib/lib.windmill.php</td>
+<td>Default Functions for the Windmill Dashboard Template</td>
+</tr>
+<tr>
 <td><strong>_core/_mysql</strong></td>
 <td>Contains MySQL core system tables installed during site initialization, as specified in <code>initialize.php</code>.</td>
+</tr>
+<tr>
+<td>_core/_mysql/mysql.hub.php</td>
+<td>Stores Data for distributed Software Hub Items controlled via the administrator Interface.</td>
+</tr>
+<tr>
+<td>_core/_mysql/mysql.store.php</td>
+<td>Stores Data for distributed Store Modules controlled via the administrator Interface.</td>
+</tr>
+<tr>
+<td>_core/_mysql/mysql.token.php</td>
+<td>Stores Data for the Token Switch _action Script controlled via the administrator Interface.</td>
 </tr>
 <tr>
 <td><strong>_core/_vendor</strong></td>
@@ -1406,6 +1757,18 @@
 <tr>
 <td><strong>_data</strong></td>
 <td>Stores module-related files, including public, private, extensions, and dynamic files for site modules. For more details, see the documentation or module folder structure section below</td>
+</tr>
+<tr>
+<td><strong>_data/__internal</strong></td>
+<td>Folder for Internal Data Files like Backups and More.</td>
+</tr>
+<tr>
+<td><strong>_data/__internal/_backup</strong></td>
+<td>Folder to store Backups of all Kind.</td>
+</tr>
+<tr>
+<td><strong>_data/__internal/_docker</strong></td>
+<td>Folder to store Docker Related Files.</td>
 </tr>
 <tr>
 <td><strong>_data/MODULE</strong></td>

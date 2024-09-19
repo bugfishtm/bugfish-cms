@@ -73,6 +73,7 @@
 	<meta name="description" content="Discover how Docker modules integrate with your CMS to streamline development and deployment. Our website offers in-depth tutorials on using Docker for containerizing, scaling, and optimizing your CMS environment.">  
 	<meta name="og:description" content="Discover how Docker modules integrate with your CMS to streamline development and deployment. Our website offers in-depth tutorials on using Docker for containerizing, scaling, and optimizing your CMS environment.">  
 	<meta property="og:image" content="./meta.png">
+
     
     
       
@@ -1160,18 +1161,17 @@ In the example above, the <code>&lt;&lt;!!Exposed_Port:The exposed port to be us
 <h3 id="method-1-choose-module-from-store">Method 1: Choose Module from Store</h3>
 <ol>
 <li>Login to the Administrator Site Module.</li>
-<li>Navigate to "Store".</li>
+<li>Navigate to "Docker" and Select the "Store Tab".</li>
 <li>Download the desired script module through the web interface.</li>
-<li>Navigate to the "Docker Module" area of the Administrator Module.</li>
-<li>Install through or docker integration interface.</li>
+<li>Install through or docker integration interface in "Templates" Tab.</li>
 </ol>
 <h3 id="method-2-upload-in-administrator-module">Method 2: Upload in Administrator Module</h3>
 <ol>
 <li>Open the Administrator Module in your web browser.</li>
 <li>Login as Administrator or privileged user.</li>
-<li>Go to the "Docker Module" area and select "Upload Manually".</li>
+<li>Go to the "Docker" area and select "Upload".</li>
 <li>Upload the docker module's .zip file.</li>
-<li>Install through or docker integration interface.</li>
+<li>Install through or docker integration interface in "Templates" Tab.</li>
 </ol>
 <h2 id="example-module">Example Module</h2>
 <p>We have an example template image module for developers in our github repository in the _examples folder.</p>
@@ -1184,8 +1184,12 @@ In the example above, the <code>&lt;&lt;!!Exposed_Port:The exposed port to be us
 </thead>
 <tbody>
 <tr>
-<td>_tpldocker</td>
-<td>Docker Module example to be investigated for developers!</td>
+<td>_tplmysql</td>
+<td>Docker Module example to be investigated for developers! This is an Image to Deploy MySQL 8.0 for Remote Connections.</td>
+</tr>
+<tr>
+<td>_tplkimai</td>
+<td>Docker Module example to be investigated for developers! This is an Image to Deploy Kimai Time Tracking Software.</td>
 </tr>
 </tbody>
 </table></div>

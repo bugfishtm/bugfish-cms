@@ -20,6 +20,9 @@ See inside folders readme.md for more information.
 ```
 ./RNAME/_admin/
 ├── mod_setting.php (Module settings script)
+├── mod_nav.php (Navigation Extension for Admin Module)
+├── mod_permission.php (Permission Extension for Admin Module)
+├── mod_site.php (Site Extension for Admin Module)
 ```
 
 ### _config
@@ -41,67 +44,67 @@ Store your Code for cronjobs in this folder. See example files in our example si
 ```
 ./RNAME/
 ├── _cron/
-│   ├── _daily/* (Daily cronjob injection scripts)
-│   ├── _hourly/* (Hourly cronjob injection scripts)
-│   ├── _weekly/* (Weekly cronjob injection scripts)
-│   ├── _yearly/* (Yearly cronjob injection scripts)
-│   └── _monthly/* (Monthly cronjob injection scripts)
+│   ├── _daily/cron.*.php (Daily cronjob injection scripts)
+│   ├── _hourly/cron.*.php (Hourly cronjob injection scripts)
+│   ├── _weekly/cron.*.php (Weekly cronjob injection scripts)
+│   ├── _yearly/cron.*.php (Yearly cronjob injection scripts)
+│   └── _monthly/cron.*.php (Monthly cronjob injection scripts)
 ```
 
 ### _css
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_css/ (Add CSS files here)
+./RNAME/_css/css.* (Add CSS files here)
 ```
 
 ### _js
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_js/ (Add JS files here)
+./RNAME/_js/js.* (Add JS files here)
 ```
 
 ### _lang
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_lang/ (Add language files here)
+./RNAME/_lang/*.php (Add language files here)
 ```
 
 ### _lib
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_lib/ (Add library files here)
+./RNAME/_lib/lib.* (Add library files here)
 ```
 
 ### _mysql
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_mysql/ (Add SQL files here for auto-installation)
+./RNAME/_mysql/mysql.*.php (Add SQL files here for auto-installation)
 ```
 
 ### _theme
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_theme/ (Add theme files here)
+./RNAME/_theme/... (Add theme files here)
 ```
 
 ### _update
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_update/ (Add update files here)
+./RNAME/_update/*.php (Add update files here)
 ```
 
 ### _wfc
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_wfc/ (Add site widgets here)
+./RNAME/_wfc/wfc.* (Add site widgets here)
 ```
 
 ### Files
@@ -127,10 +130,8 @@ The typical files you might find in this folder include:
 ### Auto-Loading Stylesheets
 CSS files in this folder are auto-loaded based on specific naming conventions:
 
-- **`css.global.*`**: These files are included for both logged-in and non-logged-in users.
-- **`css.restricted.*`**: These files are included only when the user is logged in.
-- **`css.public.*`**: These files are included only when the user is not logged in.
-
+- **`css.*`**: These files are included.
+- 
 ### Available Variables
 Variables initialized from Site Module are available, also if this css file is an extrension for this site module you will get the following info:
 
@@ -151,10 +152,7 @@ The `_js` folder is designated for storing JavaScript files that are automatical
 ### Auto-Loading Scripts
 JavaScript files in this folder are auto-loaded based on specific naming conventions:
 
-- **`js.global.*`**: These files are included for both logged-in and non-logged-in users.
-- **`js.restricted.*`**: These files are included only when the user is logged in.
-- **`js.public.*`**: These files are included only when the user is not logged in.
-
+- **`js.*`**: These files are included.
 
 ### Available Variables
 Variables initialized from Site Module are available, also if this js file is an extrension for this site module you will get the following info:
@@ -180,7 +178,9 @@ Name files in this folder like: LANGUAGEKEY.php . LANGUAGEKEY is the string you 
 The `_config` folder contains configuration files that are crucial for initializing different sections of BugfishCMS. These files are loaded at various stages of initialization to define settings, parameters, and behaviors.
 
 ### Folder Contents
+
 See example configuration files present in this folder.
+
 |File|Description|
 |----|----|
 | global.php | Global Configuration Middleware |
@@ -438,28 +438,27 @@ Here you can find information on how to install a Site Module.
 ### Method 1: Choose Module from Store
 
 1. Login to the Administrator Site Module.
-2. Navigate to "Store"
-3. Download the desired module through the web interface.
-4. Navigate to the "Website Module" Area of the Administrator Module.
-5. Install the uploaded module template with a desired name.
-6. Open the site module once to initialize required data and variables in the database.
+2. Navigate to "Websites"
+3. Download the desired module through the web interface in the "Store" Tab.
+4. Navigate to the "Websites" Area of the Administrator Module.
+5. Install the uploaded modules "Template" with a desired name.
+6. Open the site module once to initialize required data and variables in the database. You can see the new installed module in the Administrator Interfaces "Websites" Section.
 
 ### Method 2: Upload in Administrator Module
 
 1. Open the Administrator Module in your web browser.
 2. Login as Administrator or Privileged user.
-3. Go to the "Website Module" area and select "Upload Manually."
+3. Go to the "Websites" area and select "Upload"
 4. Upload the module's .zip file.
-5. Install the uploaded module template with a desired name.
-6. Open the site module once to initialize required data and variables in the database.
+5. Install the uploaded modules "Template" with a desired name.
+6. Open the site module once to initialize required data and variables in the database. You can see the new installed module in the Administrator Interfaces "Websites" Section.
 
 ### Method 3: Upload Manually
 
 1. Login to your webserver with FTP/SFTP.
 2. Unpack the required Site Modules folder.
-3. Move the extracted folder to the `_site` directory of the BugfishCMS installation.
-   - Use only alphanumeric characters and underscores (`_`), but `_` only at the start.
-4. Use the administrator module or `./developer.php` script (ensure it's activated in `cfg_ruleset.php`) to use the new site module.
+3. Move the extracted folder to the `_site` directory of the BugfishCMS installation. Use only alphanumeric characters and underscores (`_`), but `_` only at the start.
+4. Use the administrator module or `./developer.php` script (ensure it's activated in `cfg_ruleset.php`) to use the new site module. You can see the new installed module in the Administrator Interfaces "Websites" Section.
 
 ## Example Module
 

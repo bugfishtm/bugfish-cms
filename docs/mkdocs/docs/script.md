@@ -29,28 +29,26 @@ The zip file of the script module you want to deploy should look like this. Repl
 ### Method 1: Choose Module from Store
 
 1. Login to the Administrator Site Module.
-2. Navigate to "Store".
-3. Download the desired script module through the web interface.
-4. Navigate to the "Scripts" area of the Administrator Module.
-5. Install the acquired script.
-6. Use the script by hardlinking to the script's `public.php` or access it through the CMS administrator module `restricted.php` or internal functionalities.
+2. Navigate to "Scripts" in the "Extensions" Navigation Section.
+3. Download the desired script module through the web interface in the "Store" Tab.
+4. Install the acquired script through the "Templates" Tab.
+5. Use the script by hardlinking to the script's `public.php` or access it through the CMS administrator module `restricted.php` or internal functionalities. You can see the script in the "Installed" Tab.
 
 ### Method 2: Upload in Administrator Module
 
 1. Open the Administrator Module in your web browser.
 2. Login as Administrator or privileged user.
-3. Go to the "Script Module" area and select "Upload Manually".
-4. Upload the script's .zip file.
-5. Install the acquired script.
-6. Use the script by hardlinking to the script's `public.php` or access it through the CMS administrator module `restricted.php` or internal functionalities.
+3. Navigate to "Scripts" in the "Extensions" Navigation Section.
+4. Upload the script's .zip file in the "Upload" Tab.
+5. Install the acquired script through the "Templates" Tab.
+6. Use the script by hardlinking to the script's `public.php` or access it through the CMS administrator module `restricted.php` or internal functionalities. You can see the script in the "Installed" Tab.
 
 ### Method 3: Upload Manually
 
 1. Login to your web server with FTP/SFTP.
 2. Unpack the required Script Modules folder.
-3. Move the extracted folder to the `_script` directory of the BugfishCMS installation.
-   - Use only alphanumeric characters and underscores (_), with _ only at the start.
-4. Use the script by hardlinking to the script's `public.php` or access it through the CMS administrator module `restricted.php` or internal functionalities.
+3. Move the extracted folder to the `_script` directory of the BugfishCMS installation. (The _script/NAME/version.php should than be existant.)
+4. Use the script by hardlinking to the script's `public.php` or access it through the CMS administrator module `restricted.php` or internal functionalities. You can see the script in the "Installed" Tab.
 
 ## Example Module
 
@@ -59,3 +57,4 @@ We have an example template image module for developers in our github repository
 |Module| Description|
 |---|----|
 |_tplscript | Script Module example to be investigated for developers! |
+|_tplspaceinvader | Example Script Module featuring a Space Invader Game! |

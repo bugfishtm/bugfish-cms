@@ -22,6 +22,9 @@ See inside folders readme.md for more information.
 ```
 ./RNAME/_admin/
 ├── mod_setting.php (Module settings script)
+├── mod_nav.php (Module Navigation Injection to Administrator Module)
+├── mod_permission.php (Module Permission Injection to Administrator Module)
+├── mod_site.php (Module Site Injection to Administrator Module)
 ```
 
 ### _config
@@ -40,46 +43,46 @@ Store your Code for cronjobs in this folder. See example files in our example si
 ```
 ./RNAME/
 ├── _cron/
-│   ├── _daily/* (Daily cronjob injection scripts)
-│   ├── _hourly/* (Hourly cronjob injection scripts)
-│   ├── _weekly/* (Weekly cronjob injection scripts)
-│   ├── _yearly/* (Yearly cronjob injection scripts)
-│   └── _monthly/* (Monthly cronjob injection scripts)
+│   ├── _daily/cron.*.php (Daily cronjob injection scripts)
+│   ├── _hourly/cron.*.php (Hourly cronjob injection scripts)
+│   ├── _weekly/cron.*.php (Weekly cronjob injection scripts)
+│   ├── _yearly/cron.*.php (Yearly cronjob injection scripts)
+│   └── _monthly/cron.*.php (Monthly cronjob injection scripts)
 ```
 
 ### _css
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_css/ (Add CSS files here)
+./RNAME/_css/css.* (Add CSS files here)
 ```
 
 ### _js
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_js/ (Add JS files here)
+./RNAME/_js/js.* (Add JS files here)
 ```
 
 ### _lib
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_lib/ (Add library files here)
+./RNAME/_lib/lib.* (Add library files here)
 ```
 
 ### _mysql
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_mysql/ (Add SQL files here for auto-installation)
+./RNAME/_mysql/mysql.*.php (Add SQL files here for auto-installation)
 ```
 
 ### _wfc
 See inside folders readme.md for more information.
 
 ```
-./RNAME/_wfc/ (Add site widgets here)
+./RNAME/_wfc/wfc.* (Add site widgets here)
 ```
 
 ### Files
@@ -99,26 +102,26 @@ See inside folders readme.md for more information.
 ### Method 1: Choose Module from Store
 
 1. Login to the Administrator Site Module.
-2. Navigate to "Store".
-3. Download the desired extension through the web interface.
-4. Navigate to the "Website Module" area of the Administrator Module.
-5. Activate the desired extension on the desired site module.
+2. Navigate to "Extensions" in the "Extension" Section.
+3. Download the desired extension through the web interface in the "Store" Tab.
+4. Navigate to the "Template" area of the Website you are currently looking at.
+5. Activate the desired extension on the desired site module. For the administrator Module itself you can activate Extensions on the "Extension" Page, for Site Modules in the specific Site Modules Manage Overview in "Websites".
 
 ### Method 2: Upload in Administrator Module
 
 1. Open the Administrator Module in your web browser.
 2. Login as Administrator or privileged user.
-3. Go to the "Extensions" area and select "Upload Manually".
-4. Upload the extension's .zip file.
-5. Navigate to the "Website Module" area of the Administrator Module.
-6. Activate the desired extension on the desired site module.
+3. Navigate to "Extensions" in the "Extension" Section.
+4. Upload the extension's .zip file in the "Upload" Tab.
+5. Navigate to the "Template" area of the Website you are currently looking at.
+6. Activate the desired extension on the desired site module. For the administrator Module itself you can activate Extensions on the "Extension" Page, for Site Modules in the specific Site Modules Manage Overview in "Websites".
+
 
 ### Method 3: Upload Manually
 
 1. Login to your web server with FTP/SFTP.
 2. Unpack the required extension modules folder.
-3. Move the extracted folder to the `_data/SITEMODNAME/_extension/EXTNAME` directory of the BugfishCMS installation.
-   - Use only alphanumeric characters and underscores (_), with _ only at the start.
+3. Move the extracted folder to the `_data/SITEMODNAME/_extension/EXTNAME` directory of the BugfishCMS installation. Use only alphanumeric characters and underscores (_), with _ only at the start.
 4. The site module is activated automatically if moved inside that folder. Installation with the Administrator Module is recommended.
 
 ## Example Module

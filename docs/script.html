@@ -30,7 +30,6 @@
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
       
       
-
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -73,6 +72,7 @@
 	<meta name="description" content="Explore how to implement and manage script modules in your CMS. Our website offers detailed guides on enhancing functionality, automating tasks, and adding dynamic features through script integration.">  
 	<meta name="og:description" content="Explore how to implement and manage script modules in your CMS. Our website offers detailed guides on enhancing functionality, automating tasks, and adding dynamic features through script integration.">  
 	<meta property="og:image" content="./meta.png">
+
     
     
       
@@ -1189,28 +1189,26 @@
 <h3 id="method-1-choose-module-from-store">Method 1: Choose Module from Store</h3>
 <ol>
 <li>Login to the Administrator Site Module.</li>
-<li>Navigate to "Store".</li>
-<li>Download the desired script module through the web interface.</li>
-<li>Navigate to the "Scripts" area of the Administrator Module.</li>
-<li>Install the acquired script.</li>
-<li>Use the script by hardlinking to the script's <code>public.php</code> or access it through the CMS administrator module <code>restricted.php</code> or internal functionalities.</li>
+<li>Navigate to "Scripts" in the "Extensions" Navigation Section.</li>
+<li>Download the desired script module through the web interface in the "Store" Tab.</li>
+<li>Install the acquired script through the "Templates" Tab.</li>
+<li>Use the script by hardlinking to the script's <code>public.php</code> or access it through the CMS administrator module <code>restricted.php</code> or internal functionalities. You can see the script in the "Installed" Tab.</li>
 </ol>
 <h3 id="method-2-upload-in-administrator-module">Method 2: Upload in Administrator Module</h3>
 <ol>
 <li>Open the Administrator Module in your web browser.</li>
 <li>Login as Administrator or privileged user.</li>
-<li>Go to the "Script Module" area and select "Upload Manually".</li>
-<li>Upload the script's .zip file.</li>
-<li>Install the acquired script.</li>
-<li>Use the script by hardlinking to the script's <code>public.php</code> or access it through the CMS administrator module <code>restricted.php</code> or internal functionalities.</li>
+<li>Navigate to "Scripts" in the "Extensions" Navigation Section.</li>
+<li>Upload the script's .zip file in the "Upload" Tab.</li>
+<li>Install the acquired script through the "Templates" Tab.</li>
+<li>Use the script by hardlinking to the script's <code>public.php</code> or access it through the CMS administrator module <code>restricted.php</code> or internal functionalities. You can see the script in the "Installed" Tab.</li>
 </ol>
 <h3 id="method-3-upload-manually">Method 3: Upload Manually</h3>
 <ol>
 <li>Login to your web server with FTP/SFTP.</li>
 <li>Unpack the required Script Modules folder.</li>
-<li>Move the extracted folder to the <code>_script</code> directory of the BugfishCMS installation.</li>
-<li>Use only alphanumeric characters and underscores (_), with _ only at the start.</li>
-<li>Use the script by hardlinking to the script's <code>public.php</code> or access it through the CMS administrator module <code>restricted.php</code> or internal functionalities.</li>
+<li>Move the extracted folder to the <code>_script</code> directory of the BugfishCMS installation. (The _script/NAME/version.php should than be existant.)</li>
+<li>Use the script by hardlinking to the script's <code>public.php</code> or access it through the CMS administrator module <code>restricted.php</code> or internal functionalities. You can see the script in the "Installed" Tab.</li>
 </ol>
 <h2 id="example-module">Example Module</h2>
 <p>We have an example template image module for developers in our github repository in the _examples folder.</p>
@@ -1225,6 +1223,10 @@
 <tr>
 <td>_tplscript</td>
 <td>Script Module example to be investigated for developers!</td>
+</tr>
+<tr>
+<td>_tplspaceinvader</td>
+<td>Example Script Module featuring a Space Invader Game!</td>
 </tr>
 </tbody>
 </table></div>

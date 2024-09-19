@@ -55,3 +55,4 @@ The current page demonstrates the core functionalities of the CMS system, showca
 | `hive__require` | Require Alias | $object, $filepath |
 | `hive__require_x` | Include $FILEPATH./version.php and return $x array | $filepath |
 | `hive__extension_path` | Get Array with current Site modules Extension in Parameter | $hive_mode |
+| `hive__download($filePath)` | Download all files even if restricted with required filepath (absolute) | $filePath |

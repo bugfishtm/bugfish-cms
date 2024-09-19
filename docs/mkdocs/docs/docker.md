@@ -23,18 +23,17 @@ In the example above, the `<<!!Exposed_Port:The exposed port to be used for MySQ
 ### Method 1: Choose Module from Store
 
 1. Login to the Administrator Site Module.
-2. Navigate to "Store".
+2. Navigate to "Docker" and Select the "Store Tab".
 3. Download the desired script module through the web interface.
-4. Navigate to the "Docker Module" area of the Administrator Module.
-5. Install through or docker integration interface.
+4. Install through or docker integration interface in "Templates" Tab.
 
 ### Method 2: Upload in Administrator Module
 
 1. Open the Administrator Module in your web browser.
 2. Login as Administrator or privileged user.
-3. Go to the "Docker Module" area and select "Upload Manually".
+3. Go to the "Docker" area and select "Upload".
 4. Upload the docker module's .zip file.
-5. Install through or docker integration interface.
+5. Install through or docker integration interface in "Templates" Tab.
 
 ## Example Module
 
@@ -42,4 +41,5 @@ We have an example template image module for developers in our github repository
 
 |Module| Description|
 |---|----|
-|_tpldocker | Docker Module example to be investigated for developers! |
+|_tplmysql | Docker Module example to be investigated for developers! This is an Image to Deploy MySQL 8.0 for Remote Connections. |
+|_tplkimai | Docker Module example to be investigated for developers! This is an Image to Deploy Kimai Time Tracking Software.|

@@ -90,6 +90,8 @@
 	// Create Maybe lost System Folders
 	#################################################################################################################################################
 		hive__folder_create($object["path"]."/_data", true, false);
+		hive__folder_create($object["path"]."/_data/__internal/_backup", true, true);
+		hive__folder_create($object["path"]."/_data/__internal/_docker", true, true);
 		hive__folder_create($object["path"]."/_disabled", true, true);
 		hive__folder_create($object["path"]."/_disabled/_site", true, false);
 		hive__folder_create($object["path"]."/_disabled/_script", true, false);
@@ -221,6 +223,7 @@
 	#################################################################################################################################################
 	// Current Hive Mode Determination
 	#################################################################################################################################################
+	if(!defined("_HIVE_OVR_PRE_SETTING_MODE_")) { 
 		if($hive_mode_override) { define("_HIVE_MODE_DEFAULT_", $hive_mode_override); } else { define("_HIVE_MODE_DEFAULT_", $hive_mode_default); } unset($hive_mode_default);
 		if($hive_mode_override) { if(_HIVE_ADMIN_SITE_) {define("_HIVE_MODE_ARRAY_", array($hive_mode_override, _HIVE_ADMIN_SITE_));} else {define("_HIVE_MODE_ARRAY_", array($hive_mode_override));} } 
 			elseif(@is_array(@$hive_mode_array)) { if(_HIVE_ADMIN_SITE_) { array_push($hive_mode_array, _HIVE_ADMIN_SITE_); define("_HIVE_MODE_ARRAY_", $hive_mode_array);} else {define("_HIVE_MODE_ARRAY_", $hive_mode_array);} } 
@@ -287,9 +290,29 @@
 				exit();
 			}
 		} unset($ovr_hive_mode_getenv);
-		
+
 		// Set Hive Mode
 		define("_HIVE_MODE_", $_SESSION[_HIVE_COOKIE_."hive_mode"]);
+	} else {
+			$directory = $object["path"]."/_site";
+			$folders = array();
+			if (is_dir($directory)) {
+				$contents = scandir($directory);
+				foreach ($contents as $item) {
+					$itemPath = $directory . '/' . $item;
+					if (is_dir($itemPath) && !in_array($item, array('.', '..'))) {
+						$folders[] = $item;
+					}
+					unset($itemPath);
+				} unset($item);
+			} if(_HIVE_ADMIN_SITE_) {define("_HIVE_MODE_ARRAY_", $folders);} 
+			if(@in_array(_HIVE_OVR_PRE_SETTING_MODE_, _HIVE_MODE_ARRAY_)) {
+				define("_HIVE_MODE_", _HIVE_OVR_PRE_SETTING_MODE_);
+			} else { 
+				hive__error("Error", "An error ooccured while trying to view this script using an external site module.", "", true, 503);
+				exit();
+			}		
+	}
 
 	#################################################################################################################################################
 	// Relative and Absolute Variable Declaration
@@ -709,6 +732,7 @@
 		$object["user"]->extrafields(_TABLE_USER_EXTRAFIELDS_);		
 		$object["user"]->init();		
 		$object["user"]->user_add_field(" user_street TEXT NULL");		
+		$object["user"]->user_add_field(" user_company TEXT NULL");		
 		$object["user"]->user_add_field(" user_postcode TEXT NULL");		
 		$object["user"]->user_add_field(" user_country TEXT NULL");		
 		$object["user"]->user_add_field(" user_region TEXT NULL");		
@@ -1067,6 +1091,9 @@ RewriteRule ^(_disabled) - [F,L]"); }
 					require_once $hive_extension_loader_current_init."/_config/config_post.php";
 				}
 			} unset($object["extension"]);	
+			
+			// Define that This Module has Run one Time without any Errors!
+			$object["var"]->setup("_HIVE_BUILD_FIRSTRUN_",@htmlspecialchars( _HIVE_RNAME_ ?? ''), "Has this Module run for the first time without errors in Initializing?");
 		}	
 		
 	#################################################################################################################################################

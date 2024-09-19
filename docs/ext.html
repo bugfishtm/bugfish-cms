@@ -75,7 +75,6 @@
 	<meta property="og:image" content="./meta.png">
     
     
-    
       
     
     
@@ -1333,6 +1332,9 @@
 <p>See inside folders readme.md for more information.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./RNAME/_admin/
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── mod_setting.php (Module settings script)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── mod_nav.php (Module Navigation Injection to Administrator Module)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── mod_permission.php (Module Permission Injection to Administrator Module)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── mod_site.php (Module Site Injection to Administrator Module)
 </span></code></pre></div>
 <h3 id="_config">_config</h3>
 <p>See inside folders readme.md for more information.</p>
@@ -1345,31 +1347,31 @@
 <p>Store your Code for cronjobs in this folder. See example files in our example site module _tplsite which you can obtain in our official store at store.bugfish.eu!</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./RNAME/
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── _cron/
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│   ├── _daily/* (Daily cronjob injection scripts)
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   ├── _hourly/* (Hourly cronjob injection scripts)
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   ├── _weekly/* (Weekly cronjob injection scripts)
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│   ├── _yearly/* (Yearly cronjob injection scripts)
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│   └── _monthly/* (Monthly cronjob injection scripts)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│   ├── _daily/cron.*.php (Daily cronjob injection scripts)
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   ├── _hourly/cron.*.php (Hourly cronjob injection scripts)
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   ├── _weekly/cron.*.php (Weekly cronjob injection scripts)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│   ├── _yearly/cron.*.php (Yearly cronjob injection scripts)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│   └── _monthly/cron.*.php (Monthly cronjob injection scripts)
 </span></code></pre></div>
 <h3 id="_css">_css</h3>
 <p>See inside folders readme.md for more information.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./RNAME/_css/ (Add CSS files here)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./RNAME/_css/css.* (Add CSS files here)
 </span></code></pre></div>
 <h3 id="_js">_js</h3>
 <p>See inside folders readme.md for more information.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./RNAME/_js/ (Add JS files here)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./RNAME/_js/js.* (Add JS files here)
 </span></code></pre></div>
 <h3 id="_lib">_lib</h3>
 <p>See inside folders readme.md for more information.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./RNAME/_lib/ (Add library files here)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./RNAME/_lib/lib.* (Add library files here)
 </span></code></pre></div>
 <h3 id="_mysql">_mysql</h3>
 <p>See inside folders readme.md for more information.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./RNAME/_mysql/ (Add SQL files here for auto-installation)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./RNAME/_mysql/mysql.*.php (Add SQL files here for auto-installation)
 </span></code></pre></div>
 <h3 id="_wfc">_wfc</h3>
 <p>See inside folders readme.md for more information.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>./RNAME/_wfc/ (Add site widgets here)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>./RNAME/_wfc/wfc.* (Add site widgets here)
 </span></code></pre></div>
 <h3 id="files">Files</h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>./RNAME/
@@ -1381,26 +1383,25 @@
 <h3 id="method-1-choose-module-from-store">Method 1: Choose Module from Store</h3>
 <ol>
 <li>Login to the Administrator Site Module.</li>
-<li>Navigate to "Store".</li>
-<li>Download the desired extension through the web interface.</li>
-<li>Navigate to the "Website Module" area of the Administrator Module.</li>
-<li>Activate the desired extension on the desired site module.</li>
+<li>Navigate to "Extensions" in the "Extension" Section.</li>
+<li>Download the desired extension through the web interface in the "Store" Tab.</li>
+<li>Navigate to the "Template" area of the Website you are currently looking at.</li>
+<li>Activate the desired extension on the desired site module. For the administrator Module itself you can activate Extensions on the "Extension" Page, for Site Modules in the specific Site Modules Manage Overview in "Websites".</li>
 </ol>
 <h3 id="method-2-upload-in-administrator-module">Method 2: Upload in Administrator Module</h3>
 <ol>
 <li>Open the Administrator Module in your web browser.</li>
 <li>Login as Administrator or privileged user.</li>
-<li>Go to the "Extensions" area and select "Upload Manually".</li>
-<li>Upload the extension's .zip file.</li>
-<li>Navigate to the "Website Module" area of the Administrator Module.</li>
-<li>Activate the desired extension on the desired site module.</li>
+<li>Navigate to "Extensions" in the "Extension" Section.</li>
+<li>Upload the extension's .zip file in the "Upload" Tab.</li>
+<li>Navigate to the "Template" area of the Website you are currently looking at.</li>
+<li>Activate the desired extension on the desired site module. For the administrator Module itself you can activate Extensions on the "Extension" Page, for Site Modules in the specific Site Modules Manage Overview in "Websites".</li>
 </ol>
 <h3 id="method-3-upload-manually">Method 3: Upload Manually</h3>
 <ol>
 <li>Login to your web server with FTP/SFTP.</li>
 <li>Unpack the required extension modules folder.</li>
-<li>Move the extracted folder to the <code>_data/SITEMODNAME/_extension/EXTNAME</code> directory of the BugfishCMS installation.</li>
-<li>Use only alphanumeric characters and underscores (_), with _ only at the start.</li>
+<li>Move the extracted folder to the <code>_data/SITEMODNAME/_extension/EXTNAME</code> directory of the BugfishCMS installation. Use only alphanumeric characters and underscores (_), with _ only at the start.</li>
 <li>The site module is activated automatically if moved inside that folder. Installation with the Administrator Module is recommended.</li>
 </ol>
 <h2 id="example-module">Example Module</h2>
