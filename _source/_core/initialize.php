@@ -156,7 +156,7 @@
 		// Set Cookie Domain if set in cfg_ruleset.php
 		if(defined("_HIVE_COOKIE_DOMAIN_")) 					{ ini_set('session.cookie_domain', _HIVE_COOKIE_DOMAIN_); }	
 		// Restrict Upgrade to Admin Interface on Default
-		if(!defined("_HIVE_RESTRICT_UPDATE_")) 					{ define("_HIVE_RESTRICT_UPDATE_", true); }	
+		if(!defined("_HIVE_RESTRICT_UPDATE_")) 					{ define("_HIVE_RESTRICT_UPDATE_", false); }	
 	
 	#################################################################################################################################################
 	// Error Reporting

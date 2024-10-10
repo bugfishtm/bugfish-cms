@@ -126,7 +126,7 @@
 		// - If set to false, the updater on the site modules frontpage will be visible to update the page.
 		// - Default value: `true`.
 		// Uncomment and adjust the following line to use:
-		// define('_HIVE_RESTRICT_UPDATE_', false); 
+		define('_HIVE_RESTRICT_UPDATE_', false); 
 		
 		// **Allow Developer Mode**:
 		// - Enable the use of `/developer.php` for advanced debugging.
