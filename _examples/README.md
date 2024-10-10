@@ -12,6 +12,8 @@ This folder houses modules for development, testing, or use, split into three se
 
 **5. Docker Modules:** Docker modules to be deployed via the administrator interfaces docker control center.
 
+**Information about _software Modules**: These Modules are not implemented yet. They are just here for storing purposes. Do not install them on your system as these would be useless.
+
 Feel free to explore and utilize these modules to enhance your projects!
 
 You can find much more information for development and use of modules in our documentation. You can find the documentation in the repositories _docs folder.

@@ -70,6 +70,7 @@ Below is information about the folder and file structure of this repository:
 | Folder      | Description                         |
 | ----------- | ----------------------------------- |
 | .github     | Github Related Internal Files  |
+| _archived   | Removed code for later reinstation or storage purposes. Ignora that folder. |
 | _images   | Some images about this project used in readme. |
 | _licenses   | Licenses of included 3rd Party Libraries.     | 
 | _examples     | Example CMS Modules to be explored. |
